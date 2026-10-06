@@ -49,11 +49,15 @@ A high-performance, terminal-styled, static certificate retrieval and verificati
 │       └── vendor/
 │           ├── qrcode.min.js    # Standalone QR code engine
 │           └── html2pdf.bundle.min.js # Standalone PDF generator
+├── certificates/                # Static pre-generated Python PDFs (AIK26-XXXX.pdf)
+├── docs/
+│   └── PYTHON_INTEGRATION_GUIDE.md # Python PDF generation & transfer guide
 ├── data/
-│   ├── participants.json        # Hashed participant dataset
+│   ├── participants.json        # Hashed participant dataset (generated via Python/Node)
 │   ├── sample-participants.csv  # CSV template for organizers
 │   └── README.md                # Data management guide
 ├── scripts/
+│   ├── python_generate_certificates.py # Working Python PDF & JSON generator
 │   ├── generate-hashes.js       # Node.js CLI dataset generator
 │   └── hash-generator.html      # Browser GUI tool for organizers
 └── .github/

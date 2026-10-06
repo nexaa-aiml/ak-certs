@@ -82,24 +82,61 @@
   }
 
   /**
-   * Downloads high-resolution vector/canvas PDF using html2pdf
+   * Downloads certificate PDF.
+   * Priority 1: Direct download of pre-generated static Python PDF (certificates/AIK26-XXXX.pdf)
+   * Priority 2: In-browser dynamic client generation via html2pdf.js / window.print
    * @param {string} certId
    */
   async function downloadPdf(certId) {
+    const downloadBtn = document.getElementById('btnDownloadPdf');
+    const originalText = downloadBtn ? downloadBtn.innerHTML : '';
+    if (downloadBtn) {
+      downloadBtn.innerHTML = `[ PREPARING PDF... ]`;
+      downloadBtn.disabled = true;
+    }
+
+    const cleanId = certId ? certId.trim().toUpperCase() : 'AIK26';
+    const filename = `AI_Kshetra_2026_Certificate_${cleanId}.pdf`;
+    const staticPdfUrl = window.AI_CONFIG.getCertificatePdfUrl(cleanId);
+
+    // 1. Try serving pre-generated Python PDF from certificates/ directory
+    try {
+      const response = await fetch(staticPdfUrl);
+      if (response.ok) {
+        const blob = await response.blob();
+        // Verify it is a valid file (not a 404 HTML fallback)
+        if (blob.type.includes('pdf') || blob.size > 1000) {
+          const blobUrl = URL.createObjectURL(blob);
+          const link = document.createElement('a');
+          link.href = blobUrl;
+          link.download = filename;
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          setTimeout(() => URL.revokeObjectURL(blobUrl), 10000);
+          return;
+        }
+      }
+    } catch (err) {
+      console.log("> Static PDF not found or network error, falling back to dynamic generator:", err.message);
+    } finally {
+      if (downloadBtn) {
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.disabled = false;
+      }
+    }
+
+    // 2. Fallback: Dynamic in-browser canvas generation
     const certElement = document.getElementById('printableCertificate');
     if (!certElement) {
       alert("> ERROR: Certificate canvas element not found.");
       return;
     }
 
-    const downloadBtn = document.getElementById('btnDownloadPdf');
-    const originalText = downloadBtn ? downloadBtn.innerHTML : '';
     if (downloadBtn) {
       downloadBtn.innerHTML = `[ GENERATING PDF... ]`;
       downloadBtn.disabled = true;
     }
-
-    const filename = `AI_Kshetra_2026_Certificate_${certId || 'AIK26'}.pdf`;
 
     if (window.html2pdf) {
       const opt = {
@@ -133,7 +170,6 @@
         }
       }
     } else {
-      // Fallback to print dialog
       alert("> NOTICE: PDF library loading. Launching system Print-to-PDF dialog.");
       window.print();
       if (downloadBtn) {

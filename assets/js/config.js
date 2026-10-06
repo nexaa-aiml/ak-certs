@@ -64,6 +64,12 @@
       return root + 'data/participants.json';
     },
 
+    // Relative path to static pre-generated Python PDF (e.g. certificates/AIK26-0001.pdf)
+    getCertificatePdfUrl: function (certId) {
+      const root = getRootPath();
+      return root + 'certificates/' + encodeURIComponent(certId) + '.pdf';
+    },
+
     // Resolves a relative portal URL (e.g. 'verify/?id=AIK26-0001')
     resolvePortalUrl: function (relativePath) {
       const cleanRel = relativePath.replace(/^\/+/, '');

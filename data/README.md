@@ -55,7 +55,15 @@ Phone numbers must be normalized before computing the SHA-256 hash:
 
 ## 3. How Organizers Can Add Participants
 
-### Option A: Using the CLI Script (Recommended)
+### Option A: Using the Python Script (Generates PDFs & JSON)
+If you generate certificates with Python, see [docs/PYTHON_INTEGRATION_GUIDE.md](../docs/PYTHON_INTEGRATION_GUIDE.md).
+Run:
+```bash
+python scripts/python_generate_certificates.py
+```
+This updates `data/participants.json` and outputs PDFs directly to `certificates/<certificateId>.pdf`.
+
+### Option B: Using the Node.js CLI Script
 1. Prepare a CSV file (e.g. `participants.csv`) with the columns:
    ```csv
    phone,name,event,eventTrack,college,certificateType,date
@@ -67,7 +75,7 @@ Phone numbers must be normalized before computing the SHA-256 hash:
    ```
 3. The script will automatically validate numbers, compute SHA-256 hashes, assign sequential certificate IDs (`AIK26-0001`...), and write `data/participants.json`.
 
-### Option B: Using the Web GUI Tool (No CLI Required)
+### Option C: Using the Web GUI Tool (No CLI Required)
 Open `scripts/hash-generator.html` in your web browser.  
 Paste names, phone numbers, and event information. Click **Generate JSON**, and download or copy the resulting dataset into `data/participants.json`.
 
