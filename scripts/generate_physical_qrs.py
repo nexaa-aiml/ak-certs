@@ -62,10 +62,10 @@ def get_verification_url(cert_id: str) -> str:
     return f"{SITE_BASE_URL.rstrip('/')}/verify/?id={cert_id}"
 
 
-def generate_high_res_qr(cert_id: str, event_name: str, participant_name: str, url: str) -> str:
+def generate_high_res_qr(cert_id: str, event_name: str, phone_hash: str, url: str) -> str:
     """
     Generates a crisp high-resolution QR image suitable for physical printing (600x680 px)
-    with a clean label containing Certificate ID and Event.
+    displaying AI KSHETRA 2026, Certificate ID, and User Hash (no participant name).
     """
     qr = qrcode.QRCode(
         version=1,
@@ -86,18 +86,20 @@ def generate_high_res_qr(cert_id: str, event_name: str, participant_name: str, u
     final_img.paste(qr_img, (0, 0))
 
     draw = ImageDraw.Draw(final_img)
-    # Simple default font rendering
     font = ImageFont.load_default()
 
     # Draw separator line
     draw.line([(20, height), (width - 20, height)], fill="#e5e7eb", width=2)
 
-    # Clean text labels
-    text_id = f"{cert_id}  |  AI KSHETRA 2026"
-    text_event = f"{event_name.upper()} - {participant_name}"
+    # Line 1: AI KSHETRA 2026 | ID
+    text_line1 = f"AI KSHETRA 2026  |  {cert_id}"
     
-    draw.text((width // 2 - len(text_id) * 3, height + 15), text_id, fill="#ff007a", font=font)
-    draw.text((width // 2 - len(text_event) * 3, height + 40), text_event, fill="#111827", font=font)
+    # Line 2: User Hash (formatted nicely)
+    short_hash = f"{phone_hash[:16]}...{phone_hash[-8:]}" if len(phone_hash) >= 24 else phone_hash
+    text_line2 = f"USER HASH: {short_hash}"
+
+    draw.text((width // 2 - len(text_line1) * 3, height + 15), text_line1, fill="#ff007a", font=font)
+    draw.text((width // 2 - len(text_line2) * 3, height + 40), text_line2, fill="#111827", font=font)
 
     safe_event = re.sub(r'[^a-zA-Z0-9]', '', event_name)
     filename = f"{cert_id}_{safe_event}.png"
@@ -123,15 +125,15 @@ def main():
             event = row['event'].strip()
             phone = row['phone'].strip()
             norm_phone = normalize_phone_number(phone)
-
+            phone_hash = hash_phone(norm_phone) if norm_phone else ""
             verify_url = get_verification_url(cert_id)
-            qr_filename = generate_high_res_qr(cert_id, event, name, verify_url)
+            qr_filename = generate_high_res_qr(cert_id, event, phone_hash, verify_url)
 
             qr_manifest.append({
                 "certificateId": cert_id,
                 "event": event,
                 "eventTrack": row.get('eventTrack', '').strip(),
-                "participantName": name,
+                "phoneHash": phone_hash,
                 "verificationUrl": verify_url,
                 "qrFilename": qr_filename,
                 "qrPath": f"certificates/qrs/{qr_filename}"
@@ -139,7 +141,7 @@ def main():
 
             records.append({
                 "certificateId": cert_id,
-                "phoneHash": hash_phone(norm_phone) if norm_phone else "",
+                "phoneHash": phone_hash,
                 "name": name,
                 "event": event,
                 "eventTrack": row.get('eventTrack', '').strip(),
@@ -159,7 +161,7 @@ def main():
     # Save data/qr_links.csv
     with open(QR_LINKS_CSV, 'w', newline='', encoding='utf-8') as f:
         writer = csv.DictWriter(f, fieldnames=[
-            "certificateId", "event", "eventTrack", "participantName", "verificationUrl", "qrFilename", "qrPath"
+            "certificateId", "event", "eventTrack", "phoneHash", "verificationUrl", "qrFilename", "qrPath"
         ])
         writer.writeheader()
         writer.writerows(qr_manifest)
@@ -206,9 +208,9 @@ def generate_html_print_sheet(manifest):
       background: #fafafa;
     }
     .qr-card img { width: 140px; height: auto; display: block; margin: 0 auto; }
-    .qr-id { font-weight: bold; font-size: 12px; color: #ff007a; margin-top: 4px; }
-    .qr-name { font-size: 10px; font-weight: bold; margin-top: 2px; }
-    .qr-event { font-size: 9px; color: #444; }
+    .qr-id { font-weight: bold; font-size: 11px; color: #ff007a; margin-top: 4px; }
+    .qr-event { font-size: 9px; font-weight: bold; color: #111; margin-top: 2px; }
+    .qr-hash { font-size: 8px; color: #444; word-break: break-all; margin-top: 2px; }
     .qr-url { font-size: 7px; color: #777; word-break: break-all; margin-top: 4px; }
     @media print {
       .no-print { display: none; }
@@ -227,11 +229,12 @@ def generate_html_print_sheet(manifest):
   <div class="grid">
 """
     for item in manifest:
+        short_hash = f"{item['phoneHash'][:16]}...{item['phoneHash'][-8:]}" if len(item['phoneHash']) >= 24 else item['phoneHash']
         html += f"""    <div class="qr-card">
       <img src="{item['qrFilename']}" alt="{item['certificateId']}">
-      <div class="qr-id">{item['certificateId']}</div>
-      <div class="qr-name">{item['participantName']}</div>
+      <div class="qr-id">{item['certificateId']} &bull; AI KSHETRA 2026</div>
       <div class="qr-event">{item['event'].upper()}</div>
+      <div class="qr-hash">USER HASH: {short_hash}</div>
       <div class="qr-url">{item['verificationUrl']}</div>
     </div>\n"""
 

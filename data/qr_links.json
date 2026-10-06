@@ -3,7 +3,7 @@
     "certificateId": "AIK26-0001",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Winner 1",
+    "phoneHash": "79a1458e4391d2b5b75c80e3da08b2d4448655ba2f440fed54eae0f66668933d",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0001",
     "qrFilename": "AIK26-0001_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0001_OpenSesame.png"
@@ -12,7 +12,7 @@
     "certificateId": "AIK26-0002",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Winner 2",
+    "phoneHash": "91230d269330c24484447e7cd37f7f2e27ffa8ad3caf5ae3c934b810a994e4c7",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0002",
     "qrFilename": "AIK26-0002_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0002_OpenSesame.png"
@@ -21,7 +21,7 @@
     "certificateId": "AIK26-0003",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Winner 3",
+    "phoneHash": "442134e2916e8932c0240d8ed2644fe0e6c6d4cbbbf22382532e029c0c6390bd",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0003",
     "qrFilename": "AIK26-0003_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0003_OpenSesame.png"
@@ -30,7 +30,7 @@
     "certificateId": "AIK26-0004",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Participant 1",
+    "phoneHash": "e95c04c45e4e0671ca29c0a1bbf6e9a38dcca94dde9a685103744778665875e7",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0004",
     "qrFilename": "AIK26-0004_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0004_OpenSesame.png"
@@ -39,7 +39,7 @@
     "certificateId": "AIK26-0005",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Participant 2",
+    "phoneHash": "00d8a93b1da274e66f5586ab10a45491c38d35b1b1dd761d01d9a89af645550b",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0005",
     "qrFilename": "AIK26-0005_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0005_OpenSesame.png"
@@ -48,7 +48,7 @@
     "certificateId": "AIK26-0006",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "participantName": "Open Sesame Participant 3",
+    "phoneHash": "28e2bc8c05ed2bf16098cd6d6d34df6fe6fefa7ec1590dd3fa5b73abf43ccdd2",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0006",
     "qrFilename": "AIK26-0006_OpenSesame.png",
     "qrPath": "certificates/qrs/AIK26-0006_OpenSesame.png"
@@ -57,7 +57,7 @@
     "certificateId": "AIK26-0007",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Winner 1",
+    "phoneHash": "7fd411833709126583b6643c3e2a590d133b9ddcf18d99064e4b5b2e8631b5dd",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0007",
     "qrFilename": "AIK26-0007_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0007_CodeWarz.png"
@@ -66,7 +66,7 @@
     "certificateId": "AIK26-0008",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Winner 2",
+    "phoneHash": "fa145aa8db8e43f582bbdb40812173dc06257aa41b9ce6b9c48d87d7017b852c",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0008",
     "qrFilename": "AIK26-0008_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0008_CodeWarz.png"
@@ -75,7 +75,7 @@
     "certificateId": "AIK26-0009",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Winner 3",
+    "phoneHash": "315aca9c2a0ebf95fdd84941341f68695d80dcafd1e7adb86f05db341daf29d5",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0009",
     "qrFilename": "AIK26-0009_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0009_CodeWarz.png"
@@ -84,7 +84,7 @@
     "certificateId": "AIK26-0010",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Participant 1",
+    "phoneHash": "b2b5c8897286304636ca8d92911bf52c0e9c7dcfb821764b5386156aa64e9815",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0010",
     "qrFilename": "AIK26-0010_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0010_CodeWarz.png"
@@ -93,7 +93,7 @@
     "certificateId": "AIK26-0011",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Participant 2",
+    "phoneHash": "5926ee460894709e04adedc466d6d3fa21c8f2ce21c07c69a6f4863423af8ab5",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0011",
     "qrFilename": "AIK26-0011_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0011_CodeWarz.png"
@@ -102,7 +102,7 @@
     "certificateId": "AIK26-0012",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "participantName": "Code Warz Participant 3",
+    "phoneHash": "1ab9fcdbf210f20c469bc1d60ae438730705caf1789b266acb15ac706c6c5e4e",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0012",
     "qrFilename": "AIK26-0012_CodeWarz.png",
     "qrPath": "certificates/qrs/AIK26-0012_CodeWarz.png"
@@ -111,7 +111,7 @@
     "certificateId": "AIK26-0013",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Winner 1",
+    "phoneHash": "0ddb3a37131b0365d6f2784b25bd4a6c8658858fdcb54eac88a888417a529bf2",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0013",
     "qrFilename": "AIK26-0013_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0013_WorldofAgents.png"
@@ -120,7 +120,7 @@
     "certificateId": "AIK26-0014",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Winner 2",
+    "phoneHash": "a579997a628cf9d596d88db6f3ba70c31133b5e6c2a8e25ed1f8380e5c51c98b",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0014",
     "qrFilename": "AIK26-0014_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0014_WorldofAgents.png"
@@ -129,7 +129,7 @@
     "certificateId": "AIK26-0015",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Winner 3",
+    "phoneHash": "9b0afb8bb9c696c53fc9ac849e6d6c7db87df239b3151b22727111ce131fcbd1",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0015",
     "qrFilename": "AIK26-0015_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0015_WorldofAgents.png"
@@ -138,7 +138,7 @@
     "certificateId": "AIK26-0016",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Participant 1",
+    "phoneHash": "bdfe352ab73cd5fe629ffcfe444fc4bc6b250d6e019f0398d4a84c99387b8574",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0016",
     "qrFilename": "AIK26-0016_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0016_WorldofAgents.png"
@@ -147,7 +147,7 @@
     "certificateId": "AIK26-0017",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Participant 2",
+    "phoneHash": "3037a3f4294a8136633d58531e35973c0b255cb80fc202cd66ed6dc3e49f6a88",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0017",
     "qrFilename": "AIK26-0017_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0017_WorldofAgents.png"
@@ -156,7 +156,7 @@
     "certificateId": "AIK26-0018",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "participantName": "World of Agents Participant 3",
+    "phoneHash": "82c9f28963d9c04df18758c774fde4cc034632622fe4ea164988639a174cb13e",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-0018",
     "qrFilename": "AIK26-0018_WorldofAgents.png",
     "qrPath": "certificates/qrs/AIK26-0018_WorldofAgents.png"
