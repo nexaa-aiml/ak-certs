@@ -50,6 +50,37 @@
   }
 
   /**
+   * Automatically scales the 950px A4 certificate canvas to fit mobile & tablet screens
+   */
+  function autoScaleCertificate() {
+    const cert = document.getElementById('printableCertificate');
+    if (!cert) return;
+    const wrapper = cert.closest('.certificate-preview-wrapper');
+    if (!wrapper) return;
+
+    const parentContainer = wrapper.parentElement;
+    const availableWidth = parentContainer ? parentContainer.clientWidth : window.innerWidth;
+    const targetWidth = 950;
+    const targetHeight = 672;
+
+    if (availableWidth < targetWidth) {
+      const scale = Math.min(1, Math.max(0.28, (availableWidth - 16) / targetWidth));
+      cert.style.transform = `scale(${scale})`;
+      cert.style.transformOrigin = 'top center';
+      wrapper.style.height = `${Math.ceil(targetHeight * scale) + 12}px`;
+      wrapper.style.overflow = 'hidden';
+    } else {
+      cert.style.transform = 'none';
+      wrapper.style.height = 'auto';
+      wrapper.style.overflow = 'visible';
+    }
+  }
+
+  window.addEventListener('resize', autoScaleCertificate);
+  window.addEventListener('orientationchange', () => setTimeout(autoScaleCertificate, 200));
+  document.addEventListener('DOMContentLoaded', () => setTimeout(autoScaleCertificate, 150));
+
+  /**
    * Populates the certificate HTML template with participant data
    * @param {object} p - Participant record
    */
@@ -72,6 +103,9 @@
 
     // Render QR code
     renderQrCode('certQrCode', p.certificateId);
+
+    // Auto-scale to viewport
+    setTimeout(autoScaleCertificate, 50);
   }
 
   /**

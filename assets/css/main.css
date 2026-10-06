@@ -282,6 +282,20 @@ html, body {
   margin-bottom: 1.5rem;
 }
 
+.form-inline-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: stretch;
+}
+
+@media (max-width: 768px) {
+  .form-inline-row {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
+
 .input-label {
   display: block;
   font-weight: 700;
@@ -607,34 +621,267 @@ html, body {
 }
 
 /* ==================================================
-   RESPONSIVE DESIGN
+   RESPONSIVE DESIGN (MOBILE FIRST & TABLET POLISH)
    ================================================== */
 @media (max-width: 992px) {
   .events-matrix-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+  
+  .certificate-preview-wrapper {
+    width: 100%;
+    overflow: hidden;
   }
 }
 
 @media (max-width: 768px) {
-  .page-title, .section-title {
-    font-size: 1.75rem;
+  html, body {
+    font-size: 14px;
+    overflow-x: hidden;
+    width: 100%;
   }
-  .kv-row {
-    grid-template-columns: 1fr;
-    gap: 0.2rem;
+
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
   }
-  .kv-key {
-    font-size: 0.85rem;
+
+  /* Header & Navigation on Mobile */
+  .site-header {
+    position: static;
   }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+
+  .terminal-brand {
+    font-size: 1.15rem;
+    justify-content: flex-start;
+  }
+
   .nav-links {
     width: 100%;
-    justify-content: flex-start;
-    gap: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    overflow-x: auto;
+    gap: 0.35rem;
+    padding-bottom: 3px;
+    -webkit-overflow-scrolling: touch;
+    border-top: 1px dashed rgba(255, 0, 122, 0.2);
+    padding-top: 0.5rem;
   }
+
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.45rem;
+    white-space: nowrap;
+    text-align: center;
+  }
+
+  /* Typography */
+  .page-title, .section-title {
+    font-size: clamp(1.4rem, 6vw, 1.85rem);
+    line-height: 1.25;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .subtitle {
+    font-size: 0.92rem;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+  }
+
+  /* Terminal Cards */
   .terminal-card {
-    padding: 1.25rem;
+    padding: 1.25rem 1rem;
+    margin-bottom: 1.25rem;
   }
+
+  .corner-marker {
+    font-size: 14px;
+  }
+
+  .corner-tl { top: -7px; left: -5px; }
+  .corner-tr { top: -7px; right: -5px; }
+  .corner-bl { bottom: -7px; left: -5px; }
+  .corner-br { bottom: -7px; right: -5px; }
+
+  /* Input Panel on Mobile */
+  .input-terminal-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .input-bracket-wrapper {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    padding: 0.3rem 0.6rem;
+    box-sizing: border-box;
+  }
+
+  .terminal-input {
+    font-size: 1rem;
+    padding: 0.5rem 0.2rem;
+    width: 100%;
+  }
+
+  .input-prefix {
+    font-size: 0.95rem;
+  }
+
+  /* Full-width Stacked Action Buttons on Mobile */
+  .action-row {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 0.65rem !important;
+  }
+
+  .action-row .btn,
+  .action-row a,
+  .action-row button,
+  #btnLookupParticipant,
+  #btnVerifyCert {
+    width: 100% !important;
+    min-height: 46px;
+    box-sizing: border-box;
+    text-align: center;
+    justify-content: center;
+    font-size: 0.92rem;
+    padding: 0.75rem 1rem;
+  }
+
+  /* Key-Value Verification Card */
+  .terminal-kv-grid {
+    gap: 0.75rem;
+    padding-top: 0.9rem;
+    padding-bottom: 0.9rem;
+    margin-top: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .kv-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px dotted rgba(255, 0, 122, 0.2);
+  }
+
+  .kv-key {
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+  }
+
+  .kv-val {
+    font-size: 0.95rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+    color: var(--text-main);
+  }
+
+  .kv-val.highlight-val {
+    font-size: 1.15rem;
+    color: var(--primary);
+    font-weight: 800;
+  }
+
+  /* Status Badges */
+  .status-badge {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 0.88rem;
+    padding: 0.6rem 0.75rem;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  /* System Status Box */
+  .terminal-status-box {
+    padding: 0.85rem 1rem;
+    margin-top: 1.25rem;
+  }
+
   .status-grid {
     grid-template-columns: 1fr;
+    gap: 0.4rem;
+  }
+
+  .status-grid-item {
+    font-size: 0.82rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    border-bottom: 1px dotted rgba(0, 0, 0, 0.06);
+    padding-bottom: 0.25rem;
+  }
+
+  /* Events Matrix on Mobile */
+  .event-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .event-title {
+    font-size: 1.35rem;
+  }
+
+  .event-tagline {
+    font-size: 0.8rem;
+  }
+
+  .event-desc {
+    font-size: 0.85rem;
+  }
+
+  .event-actions .btn {
+    width: 100%;
+    min-height: 44px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Footer on Mobile */
+  .site-footer {
+    padding-top: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-link {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.35rem;
+  }
+  
+  .terminal-brand {
+    font-size: 1.05rem;
+  }
+  
+  .terminal-card {
+    padding: 1.1rem 0.85rem;
   }
 }

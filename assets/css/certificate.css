@@ -9,16 +9,21 @@
 
 /* Certificate Preview Wrapper for Screen */
 .certificate-preview-wrapper {
-  margin: 2.5rem 0;
-  overflow-x: auto;
-  padding: 1rem 0;
+  margin: 1.5rem auto;
+  width: 100%;
+  max-width: 950px;
+  overflow: hidden;
   display: flex;
   justify-content: center;
+  align-items: flex-start;
+  position: relative;
+  box-sizing: border-box;
 }
 
 /* Base Certificate Canvas: Exact A4 Landscape Aspect Ratio (1.414:1) */
 .certificate-canvas {
   width: 950px;
+  min-width: 950px;
   height: 672px; /* 950 / sqrt(2) approx 672px for perfect A4 ratio */
   position: relative;
   background-color: #ffffff;
@@ -33,6 +38,8 @@
   user-select: none;
   font-family: 'Inter', sans-serif;
   overflow: hidden;
+  transform-origin: top center;
+  transition: transform 0.15s ease-out;
 }
 
 /* Outer Border & Guilloche-style Framing */
