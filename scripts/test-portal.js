@@ -115,13 +115,13 @@ async function runTests() {
   const dataset = JSON.parse(fs.readFileSync('./data/participants.json', 'utf8'));
   console.log(`  Loaded ${dataset.length} participants from dataset.`);
 
-  // Test look up for 9876543210
-  const targetHash = sha256('9876543210');
+  // Test look up for 9800000001
+  const targetHash = sha256('9800000001');
   const participant = dataset.find(p => p.phoneHash === targetHash);
-  if (participant && participant.name === 'Aarav Sharma' && participant.certificateId === 'AIK26-0001') {
-    console.log(`  ✓ Lookup 9876543210: Matched "${participant.name}" | ID: ${participant.certificateId} | Event: ${participant.event}`);
+  if (participant && participant.name === 'Open Sesame Winner 1' && participant.certificateId === 'AIK26-0001') {
+    console.log(`  ✓ Lookup 9800000001: Matched "${participant.name}" | ID: ${participant.certificateId} | Event: ${participant.event}`);
   } else {
-    console.error('  ✗ Lookup 9876543210 failed to match participant record');
+    console.error('  ✗ Lookup 9800000001 failed to match participant record');
   }
 
   // Test lookup for invalid phone
@@ -135,7 +135,7 @@ async function runTests() {
 
   // Test lookup by ID
   const idMatch = dataset.find(p => p.certificateId === 'AIK26-0007');
-  if (idMatch && idMatch.name === 'Pooja Reddy') {
+  if (idMatch && idMatch.name === 'Code Warz Winner 1') {
     console.log(`  ✓ Verify ID AIK26-0007: Matched "${idMatch.name}" | Event: ${idMatch.event}`);
   } else {
     console.error('  ✗ Verify ID AIK26-0007 failed');

@@ -23,7 +23,7 @@ from PIL import Image, ImageDraw, ImageFont
 # =====================================================================
 # CONFIGURATION
 # =====================================================================
-SITE_BASE_URL = "https://your-username.github.io/your-repo-name"
+SITE_BASE_URL = "https://nexaa-aiml.github.io/ak-certs"
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 CSV_PATH = BASE_DIR / "data" / "sample-participants.csv"

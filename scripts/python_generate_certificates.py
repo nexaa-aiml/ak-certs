@@ -34,8 +34,8 @@ except ImportError:
 # =====================================================================
 # CONFIGURATION
 # =====================================================================
-# Update with your GitHub Pages URL or leave empty for auto-detection
-SITE_BASE_URL = "https://your-username.github.io/your-repo-name"
+# Deployed GitHub Pages Production URL
+SITE_BASE_URL = "https://nexaa-aiml.github.io/ak-certs"
 
 EVENT_NAME = "AI KSHETRA 2026"
 EVENT_DATE = "09 October 2026"

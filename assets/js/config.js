@@ -7,33 +7,26 @@
 (function (window) {
   'use strict';
 
-  // Base URL auto-detection for GitHub Pages & Custom Domains
-  // To manually override for production GitHub Pages, you can set:
-  // window.AI_OVERRIDE_BASE_URL = "https://<username>.github.io/<repo-name>";
+  // Production Deployed URL on GitHub Pages
+  const PRODUCTION_BASE_URL = "https://nexaa-aiml.github.io/ak-certs";
+
   function detectBaseUrl() {
     if (window.AI_OVERRIDE_BASE_URL) {
       return window.AI_OVERRIDE_BASE_URL.replace(/\/+$/, '');
     }
 
     const loc = window.location;
+    // If running in production on github.io or deployed domain
+    if (loc.hostname.endsWith('github.io')) {
+      return PRODUCTION_BASE_URL;
+    }
+
     if (!loc.origin || loc.origin === 'null' || loc.protocol === 'file:') {
-      // Running locally from file system or origin is null
-      return '';
+      return PRODUCTION_BASE_URL;
     }
 
-    // Check if hosted on GitHub Pages: e.g. https://username.github.io/repo-name/
-    const pathSegments = loc.pathname.split('/').filter(Boolean);
-    let basePath = '';
-
-    if (loc.hostname.endsWith('github.io') && pathSegments.length > 0) {
-      // The first segment of the path is the repository name
-      basePath = '/' + pathSegments[0];
-    } else if (loc.pathname.includes('/proj_web/cert-site')) {
-      // Local development test server root if served with path prefix
-      basePath = loc.pathname.substring(0, loc.pathname.indexOf('/proj_web/cert-site') + '/proj_web/cert-site'.length);
-    }
-
-    return loc.origin + basePath;
+    // On local dev server, return local URL or fallback
+    return loc.origin + (loc.pathname.includes('/ak-certs') ? '/ak-certs' : '');
   }
 
   // Determine root relative prefix based on HTML attribute: <html data-root="./">

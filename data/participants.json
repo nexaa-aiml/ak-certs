@@ -1,28 +1,38 @@
 [
   {
     "certificateId": "AIK26-0001",
-    "phoneHash": "7619ee8cea49187f309616e30ecf54be072259b43760f1f550a644945d5572f2",
-    "name": "Aarav Sharma",
+    "phoneHash": "79a1458e4391d2b5b75c80e3da08b2d4448655ba2f440fed54eae0f66668933d",
+    "name": "Open Sesame Winner 1",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
-    "certificateType": "Certificate of Participation",
+    "certificateType": "Certificate of Merit",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0002",
-    "phoneHash": "5422f73d038b3c0ca4e509c468d4baea162b850342a56eeda92af4cfe36242c5",
-    "name": "Kavya Sree N.",
+    "phoneHash": "91230d269330c24484447e7cd37f7f2e27ffa8ad3caf5ae3c934b810a994e4c7",
+    "name": "Open Sesame Winner 2",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "college": "Vignan's Foundation for Science\\",
-    "certificateType": "Technology & Research",
-    "date": "Certificate of Participation"
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Merit",
+    "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0003",
-    "phoneHash": "f643fb0311eab4338ae577c960e830fe8bac6479e2aa853be47cc546d2ac9188",
-    "name": "Rohan Varma",
+    "phoneHash": "442134e2916e8932c0240d8ed2644fe0e6c6d4cbbbf22382532e029c0c6390bd",
+    "name": "Open Sesame Winner 3",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Merit",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0004",
+    "phoneHash": "e95c04c45e4e0671ca29c0a1bbf6e9a38dcca94dde9a685103744778665875e7",
+    "name": "Open Sesame Participant 1",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
@@ -30,19 +40,9 @@
     "date": "09 October 2026"
   },
   {
-    "certificateId": "AIK26-0004",
-    "phoneHash": "c30836a2688f6a83a26cc80fd96b4a1d740c313d5726d4a327d8f87727e0cd8a",
-    "name": "Sneha Chowdary",
-    "event": "Open Sesame",
-    "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "college": "Siddhartha Engineering College\\",
-    "certificateType": "Vijayawada",
-    "date": "Certificate of Participation"
-  },
-  {
     "certificateId": "AIK26-0005",
-    "phoneHash": "504e7b2640f2ba026a4de9ee3d2d8acbef0f15ba4f2bc8bb5ff86009277d336f",
-    "name": "Tharun Goud",
+    "phoneHash": "00d8a93b1da274e66f5586ab10a45491c38d35b1b1dd761d01d9a89af645550b",
+    "name": "Open Sesame Participant 2",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
@@ -51,58 +51,58 @@
   },
   {
     "certificateId": "AIK26-0006",
-    "phoneHash": "ea18c6f77236fb553b81db62fdceacd31a26677ea4cd35a2d55947aacd03cfee",
-    "name": "Divya Teja",
+    "phoneHash": "28e2bc8c05ed2bf16098cd6d6d34df6fe6fefa7ec1590dd3fa5b73abf43ccdd2",
+    "name": "Open Sesame Participant 3",
     "event": "Open Sesame",
     "eventTrack": "Technical Quiz & Puzzle Challenge",
-    "college": "Bapatla Engineering College",
+    "college": "R.V.R. & J.C. College of Engineering",
     "certificateType": "Certificate of Participation",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0007",
-    "phoneHash": "f6e8240a80effb8326390bbefb5a4ad9fe10e3029f41028b84bda4e9291d88e9",
-    "name": "Pooja Reddy",
+    "phoneHash": "7fd411833709126583b6643c3e2a590d133b9ddcf18d99064e4b5b2e8631b5dd",
+    "name": "Code Warz Winner 1",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
     "college": "R.V.R. & J.C. College of Engineering",
-    "certificateType": "Certificate of Participation",
+    "certificateType": "Certificate of Merit",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0008",
-    "phoneHash": "3cad4efc0d9203ed2c82ce46ee2d91647b88119eb138904bb42ac97d618a2e7a",
-    "name": "Manoj Kumar P.",
-    "event": "Code Warz",
-    "eventTrack": "Competitive Programming",
-    "college": "KL University\\",
-    "certificateType": "Vaddeswaram",
-    "date": "Certificate of Participation"
-  },
-  {
-    "certificateId": "AIK26-0009",
-    "phoneHash": "b80b736df75c818c7da224aa6a67b883e3deea0b267f3cf6fd9095468bcc0b29",
-    "name": "Vikram Aditya",
+    "phoneHash": "fa145aa8db8e43f582bbdb40812173dc06257aa41b9ce6b9c48d87d7017b852c",
+    "name": "Code Warz Winner 2",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
     "college": "R.V.R. & J.C. College of Engineering",
-    "certificateType": "Certificate of Participation",
+    "certificateType": "Certificate of Merit",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0009",
+    "phoneHash": "315aca9c2a0ebf95fdd84941341f68695d80dcafd1e7adb86f05db341daf29d5",
+    "name": "Code Warz Winner 3",
+    "event": "Code Warz",
+    "eventTrack": "Competitive Programming",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Merit",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0010",
-    "phoneHash": "3390caa9e83702883e135ab12c5adc28e5121a71aeed18fe75134f2c5f7d93d8",
-    "name": "Ananya Sri",
+    "phoneHash": "b2b5c8897286304636ca8d92911bf52c0e9c7dcfb821764b5386156aa64e9815",
+    "name": "Code Warz Participant 1",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "college": "Andhra University College of Engineering",
+    "college": "R.V.R. & J.C. College of Engineering",
     "certificateType": "Certificate of Participation",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0011",
-    "phoneHash": "8f524d6326c9bfb2267b05f95210318cb35c7afe19ae7f5b417669e1b08fc8b5",
-    "name": "Karthik Raju",
+    "phoneHash": "5926ee460894709e04adedc466d6d3fa21c8f2ce21c07c69a6f4863423af8ab5",
+    "name": "Code Warz Participant 2",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
     "college": "R.V.R. & J.C. College of Engineering",
@@ -111,38 +111,48 @@
   },
   {
     "certificateId": "AIK26-0012",
-    "phoneHash": "bed8a1691650400f2bdc4a98acc6e63dc9bd3ce62351c7fb732017bb65294efe",
-    "name": "Harshitha Rao",
+    "phoneHash": "1ab9fcdbf210f20c469bc1d60ae438730705caf1789b266acb15ac706c6c5e4e",
+    "name": "Code Warz Participant 3",
     "event": "Code Warz",
     "eventTrack": "Competitive Programming",
-    "college": "JNTU College of Engineering\\",
-    "certificateType": "Narasaraopet",
-    "date": "Certificate of Participation"
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0013",
-    "phoneHash": "0b940fdc24ec51a1e8e0d374324eb1ae36c8dd28309926f2bd97133da7f6523b",
-    "name": "Sai Teja Varma",
+    "phoneHash": "0ddb3a37131b0365d6f2784b25bd4a6c8658858fdcb54eac88a888417a529bf2",
+    "name": "World of Agents Winner 1",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
-    "certificateType": "Certificate of Participation",
+    "certificateType": "Certificate of Merit",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0014",
-    "phoneHash": "8ff2bccc4078a7c9846e2c6e9f2f9af3ceb96b4eea7f8327d9d4beb4660fe81f",
-    "name": "Bhavana Chodavarapu",
+    "phoneHash": "a579997a628cf9d596d88db6f3ba70c31133b5e6c2a8e25ed1f8380e5c51c98b",
+    "name": "World of Agents Winner 2",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
-    "certificateType": "Certificate of Participation",
+    "certificateType": "Certificate of Merit",
     "date": "09 October 2026"
   },
   {
     "certificateId": "AIK26-0015",
-    "phoneHash": "0e201ca38e6d78e5a6e34b34deaf3f6fab11d94acfd60ec82d7de547ff2410b8",
-    "name": "Akhil Krishna",
+    "phoneHash": "9b0afb8bb9c696c53fc9ac849e6d6c7db87df239b3151b22727111ce131fcbd1",
+    "name": "World of Agents Winner 3",
+    "event": "World of Agents",
+    "eventTrack": "AI & Automation Challenge",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Merit",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0016",
+    "phoneHash": "bdfe352ab73cd5fe629ffcfe444fc4bc6b250d6e019f0398d4a84c99387b8574",
+    "name": "World of Agents Participant 1",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
@@ -150,19 +160,9 @@
     "date": "09 October 2026"
   },
   {
-    "certificateId": "AIK26-0016",
-    "phoneHash": "3ac3b0278d12509f0726f46fa20e5b3d7bb79255dd13514e4d7383101ab721d6",
-    "name": "Meenakshi Pillai",
-    "event": "World of Agents",
-    "eventTrack": "AI & Automation Challenge",
-    "college": "SRM University\\",
-    "certificateType": "AP",
-    "date": "Certificate of Participation"
-  },
-  {
     "certificateId": "AIK26-0017",
-    "phoneHash": "010db6c786f33fcc855738e86acf485a255962c742ff942e80712bff288a0bfb",
-    "name": "Pradeep Varma",
+    "phoneHash": "3037a3f4294a8136633d58531e35973c0b255cb80fc202cd66ed6dc3e49f6a88",
+    "name": "World of Agents Participant 2",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
     "college": "R.V.R. & J.C. College of Engineering",
@@ -171,12 +171,12 @@
   },
   {
     "certificateId": "AIK26-0018",
-    "phoneHash": "f46fd1f94eaeefb3883b8a9061ca0bf6eb3f7c59e6baf1fffe093289d8a16a48",
-    "name": "Rithika Jain",
+    "phoneHash": "82c9f28963d9c04df18758c774fde4cc034632622fe4ea164988639a174cb13e",
+    "name": "World of Agents Participant 3",
     "event": "World of Agents",
     "eventTrack": "AI & Automation Challenge",
-    "college": "Gayatri Vidya Parishad College of Engineering\\",
-    "certificateType": "Vizag",
-    "date": "Certificate of Participation"
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
   }
 ]
