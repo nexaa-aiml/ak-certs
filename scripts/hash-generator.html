@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Kshetra 2026 - Participant Hash Generator GUI</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <style>
+    .admin-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+    }
+    textarea {
+      width: 100%;
+      height: 180px;
+      background: #000;
+      color: #0f0;
+      font-family: monospace;
+      padding: 10px;
+      box-sizing: border-box;
+      border: 1px solid var(--primary);
+    }
+  </style>
+</head>
+<body class="theme-terminal">
+  <header class="site-header">
+    <div class="header-inner container">
+      <div class="terminal-brand">
+        <span class="prompt">&gt;_</span> AI_KSHETRA <span class="tag">[ ADMIN_TOOL ]</span>
+      </div>
+      <nav class="nav-links">
+        <a href="../index.html" class="nav-link">[ HOME ]</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="admin-container">
+      <div class="terminal-tag">// 01 / ORGANIZER_UTILITY</div>
+      <h1 class="page-title">&gt;_ BATCH_PHONE_HASH_GENERATOR</h1>
+      <p class="subtitle">Quickly convert participant CSV/list into secure SHA-256 hashed JSON for <code>data/participants.json</code>.</p>
+
+      <div style="margin: 1.5rem 0;">
+        <label style="display:block; font-weight:bold; margin-bottom: 0.5rem;">
+          &gt; PASTE CSV DATA (Format: phone, name, event, college):
+        </label>
+        <textarea id="csvInput" placeholder="9876543210, John Doe, Open Sesame, R.V.R. & J.C. College&#10;+91 9123456780, Jane Smith, Code Warz, R.V.R. & J.C. College"></textarea>
+      </div>
+
+      <div style="display:flex; gap: 1rem; flex-wrap: wrap;">
+        <button id="btnGenerate" class="btn btn-primary">[ GENERATE HASHED JSON -&gt; ]</button>
+        <button id="btnDownload" class="btn btn-outline" style="display:none;">[ DOWNLOAD participants.json ]</button>
+      </div>
+
+      <div id="outputArea" style="margin-top: 1.5rem; display:none;">
+        <div class="terminal-tag">// GENERATED_JSON_OUTPUT</div>
+        <textarea id="jsonOutput" readonly style="color: var(--primary);"></textarea>
+        <div id="statusReport" style="margin-top: 0.5rem; font-size: 0.9rem;"></div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    async function sha256Hex(str) {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2, '0')).join('');
+    }
+
+    function normalizePhone(raw) {
+      if (!raw) return null;
+      const digits = String(raw).replace(/\D/g, '');
+      if (digits.length === 12 && digits.startsWith('91')) {
+        const ten = digits.slice(2);
+        if (/^[6-9]\d{9}$/.test(ten)) return ten;
+      }
+      if (digits.length === 11 && digits.startsWith('0')) {
+        const ten = digits.slice(1);
+        if (/^[6-9]\d{9}$/.test(ten)) return ten;
+      }
+      if (digits.length === 10 && /^[6-9]\d{9}$/.test(digits)) {
+        return digits;
+      }
+      return null;
+    }
+
+    let generatedJsonStr = "";
+
+    document.getElementById('btnGenerate').addEventListener('click', async () => {
+      const text = document.getElementById('csvInput').value.trim();
+      if (!text) {
+        alert("Please paste or type CSV lines first.");
+        return;
+      }
+
+      const lines = text.split('\n');
+      const results = [];
+      let seq = 1;
+      let skipped = 0;
+
+      for (let line of lines) {
+        line = line.trim();
+        if (!line) continue;
+        const parts = line.split(',').map(s => s.trim().replace(/^["']|["']$/g, ''));
+        if (parts.length < 2) continue;
+
+        const phoneNorm = normalizePhone(parts[0]);
+        if (!phoneNorm) {
+          skipped++;
+          continue;
+        }
+
+        const phoneHash = await sha256Hex(phoneNorm);
+        const certId = `AIK26-${String(seq).padStart(4, '0')}`;
+        seq++;
+
+        results.push({
+          certificateId: certId,
+          phoneHash: phoneHash,
+          name: parts[1] || "Participant",
+          event: parts[2] || "Open Sesame",
+          eventTrack: parts[4] || "",
+          college: parts[3] || "R.V.R. & J.C. College of Engineering",
+          certificateType: "Certificate of Participation",
+          date: "09 October 2026"
+        });
+      }
+
+      generatedJsonStr = JSON.stringify(results, null, 2);
+      document.getElementById('jsonOutput').value = generatedJsonStr;
+      document.getElementById('outputArea').style.display = 'block';
+      document.getElementById('btnDownload').style.display = 'inline-block';
+      document.getElementById('statusReport').innerHTML = 
+        `&gt; Generated: <strong>${results.length}</strong> records. Skipped invalid: <strong>${skipped}</strong>. Copy or download and replace <code>data/participants.json</code>.`;
+    });
+
+    document.getElementById('btnDownload').addEventListener('click', () => {
+      const blob = new Blob([generatedJsonStr], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'participants.json';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>

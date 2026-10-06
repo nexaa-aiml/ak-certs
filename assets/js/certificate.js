@@ -1,0 +1,153 @@
+/**
+ * AI KSHETRA 2026 - Certificate Rendering, QR Generation & PDF Export
+ * NEXAA – Next Gen Engineers & AI Association
+ * R.V.R. & J.C. College of Engineering, Guntur
+ */
+
+(function (window) {
+  'use strict';
+
+  /**
+   * Generates a deterministic QR Code pointing to public verification page
+   * @param {string} containerId - DOM ID of element
+   * @param {string} certId - Unique Certificate ID (e.g. AIK26-0001)
+   */
+  function renderQrCode(containerId, certId) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+
+    container.innerHTML = ''; // Clear previous
+
+    // Construct public verification URL
+    let verifyUrl = "";
+    if (window.AI_CONFIG.SITE_BASE_URL) {
+      verifyUrl = `${window.AI_CONFIG.SITE_BASE_URL}/verify/?id=${encodeURIComponent(certId)}`;
+    } else {
+      // Relative fallback
+      const root = window.AI_CONFIG.getRootPath();
+      verifyUrl = `${window.location.origin}${window.location.pathname.replace(/\/certificate(\/view)?\/?.*$/, '')}/verify/?id=${encodeURIComponent(certId)}`;
+    }
+
+    // Set QR code verification text link if present
+    const linkEl = document.getElementById('certVerifyUrlText');
+    if (linkEl) {
+      linkEl.textContent = verifyUrl;
+      linkEl.href = verifyUrl;
+    }
+
+    if (window.QRCode) {
+      new window.QRCode(container, {
+        text: verifyUrl,
+        width: 110,
+        height: 110,
+        colorDark: "#000000",
+        colorLight: "#ffffff",
+        correctLevel: window.QRCode.CorrectLevel.M
+      });
+    } else {
+      console.warn("> [AI_CERT] QRCode library not loaded yet.");
+    }
+  }
+
+  /**
+   * Populates the certificate HTML template with participant data
+   * @param {object} p - Participant record
+   */
+  function populateCertificate(p) {
+    if (!p) return;
+
+    const elName = document.getElementById('certParticipantName');
+    const elEvent = document.getElementById('certEventName');
+    const elCollege = document.getElementById('certCollegeName');
+    const elId = document.getElementById('certIdDisplay');
+    const elDate = document.getElementById('certDateDisplay');
+    const elType = document.getElementById('certTypeDisplay');
+
+    if (elName) elName.textContent = p.name || 'PARTICIPANT NAME';
+    if (elEvent) elEvent.textContent = p.event || 'EVENT NAME';
+    if (elCollege) elCollege.textContent = p.college || 'R.V.R. & J.C. College of Engineering';
+    if (elId) elId.textContent = p.certificateId || 'AIK26-XXXX';
+    if (elDate) elDate.textContent = p.date || '09 October 2026';
+    if (elType) elType.textContent = (p.certificateType || 'CERTIFICATE OF PARTICIPATION').toUpperCase();
+
+    // Render QR code
+    renderQrCode('certQrCode', p.certificateId);
+  }
+
+  /**
+   * Initiates browser native print dialog with landscape A4 presets
+   */
+  function printCertificate() {
+    window.print();
+  }
+
+  /**
+   * Downloads high-resolution vector/canvas PDF using html2pdf
+   * @param {string} certId
+   */
+  async function downloadPdf(certId) {
+    const certElement = document.getElementById('printableCertificate');
+    if (!certElement) {
+      alert("> ERROR: Certificate canvas element not found.");
+      return;
+    }
+
+    const downloadBtn = document.getElementById('btnDownloadPdf');
+    const originalText = downloadBtn ? downloadBtn.innerHTML : '';
+    if (downloadBtn) {
+      downloadBtn.innerHTML = `[ GENERATING PDF... ]`;
+      downloadBtn.disabled = true;
+    }
+
+    const filename = `AI_Kshetra_2026_Certificate_${certId || 'AIK26'}.pdf`;
+
+    if (window.html2pdf) {
+      const opt = {
+        margin: 0,
+        filename: filename,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 2.5,
+          useCORS: true,
+          logging: false,
+          scrollX: 0,
+          scrollY: 0
+        },
+        jsPDF: {
+          unit: 'mm',
+          format: 'a4',
+          orientation: 'landscape'
+        }
+      };
+
+      try {
+        await window.html2pdf().set(opt).from(certElement).save();
+      } catch (err) {
+        console.error("> PDF generation failed:", err);
+        alert("> WARNING: Direct PDF rendering failed. Opening native Print dialog as high-quality fallback.");
+        window.print();
+      } finally {
+        if (downloadBtn) {
+          downloadBtn.innerHTML = originalText;
+          downloadBtn.disabled = false;
+        }
+      }
+    } else {
+      // Fallback to print dialog
+      alert("> NOTICE: PDF library loading. Launching system Print-to-PDF dialog.");
+      window.print();
+      if (downloadBtn) {
+        downloadBtn.innerHTML = originalText;
+        downloadBtn.disabled = false;
+      }
+    }
+  }
+
+  window.AI_CERT = {
+    renderQrCode,
+    populateCertificate,
+    printCertificate,
+    downloadPdf
+  };
+
+})(window);

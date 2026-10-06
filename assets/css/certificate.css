@@ -1,0 +1,397 @@
+/**
+ * AI KSHETRA 2026 - Certificate Styling & Print Specification
+ * Designed for A4 Landscape Printing (297mm x 210mm)
+ * NEXAA – Next Gen Engineers & AI Association
+ * R.V.R. & J.C. College of Engineering, Guntur
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400;1,600&family=Inter:wght@400;500;600;700&display=swap');
+
+/* Certificate Preview Wrapper for Screen */
+.certificate-preview-wrapper {
+  margin: 2.5rem 0;
+  overflow-x: auto;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Base Certificate Canvas: Exact A4 Landscape Aspect Ratio (1.414:1) */
+.certificate-canvas {
+  width: 950px;
+  height: 672px; /* 950 / sqrt(2) approx 672px for perfect A4 ratio */
+  position: relative;
+  background-color: #ffffff;
+  color: #111827;
+  padding: 38px 45px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d1d5db;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  user-select: none;
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
+}
+
+/* Outer Border & Guilloche-style Framing */
+.cert-outer-border {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  bottom: 15px;
+  border: 2.5px solid #111827;
+  pointer-events: none;
+}
+
+.cert-inner-border {
+  position: absolute;
+  top: 21px;
+  left: 21px;
+  right: 21px;
+  bottom: 21px;
+  border: 1px solid #ff007a;
+  pointer-events: none;
+}
+
+/* Corner Ornaments */
+.cert-corner {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border-color: #ff007a;
+  border-style: solid;
+  pointer-events: none;
+}
+
+.cert-corner-tl { top: 25px; left: 25px; border-width: 3px 0 0 3px; }
+.cert-corner-tr { top: 25px; right: 25px; border-width: 3px 3px 0 0; }
+.cert-corner-bl { bottom: 25px; left: 25px; border-width: 0 0 3px 3px; }
+.cert-corner-br { bottom: 25px; right: 25px; border-width: 0 3px 3px 0; }
+
+/* Subtle Watermark in Center */
+.cert-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-25deg);
+  font-family: 'Space Mono', monospace;
+  font-size: 7rem;
+  font-weight: 900;
+  color: rgba(255, 0, 122, 0.025);
+  pointer-events: none;
+  white-space: nowrap;
+  letter-spacing: 0.1em;
+  z-index: 1;
+}
+
+/* Certificate Header */
+.cert-header {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 12px;
+}
+
+.cert-institution-block {
+  text-align: left;
+}
+
+.cert-inst-title {
+  font-family: 'Cinzel', serif;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: 0.05em;
+  line-height: 1.2;
+}
+
+.cert-inst-sub {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #4b5563;
+  letter-spacing: 0.04em;
+  margin-top: 2px;
+}
+
+.cert-brand-badge {
+  text-align: right;
+  border-left: 2px solid #ff007a;
+  padding-left: 14px;
+}
+
+.cert-event-title {
+  font-family: 'Space Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ff007a;
+  letter-spacing: 0.08em;
+}
+
+.cert-event-tag {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #111827;
+  letter-spacing: 0.04em;
+}
+
+/* Certificate Main Body */
+.cert-body {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.cert-title-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 2.1rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: #111827;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+
+.cert-presentation-text {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #4b5563;
+  margin-bottom: 10px;
+}
+
+.cert-recipient-name {
+  font-family: 'Cinzel', serif;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #111827;
+  letter-spacing: 0.06em;
+  border-bottom: 1.5px solid #ff007a;
+  display: inline-block;
+  padding: 0 35px 4px 35px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.cert-achievement-text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #374151;
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.cert-event-highlight {
+  font-weight: 800;
+  color: #ff007a;
+  font-family: 'Space Mono', monospace;
+  letter-spacing: 0.03em;
+}
+
+.cert-college-highlight {
+  font-weight: 700;
+  color: #111827;
+}
+
+/* Certificate Footer & Signatures */
+.cert-footer {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 140px 1fr 1fr 1fr;
+  align-items: flex-end;
+  gap: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #e5e7eb;
+}
+
+/* QR Code Block */
+.cert-qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.cert-qr-box {
+  width: 90px;
+  height: 90px;
+  background: #ffffff;
+  padding: 4px;
+  border: 1px solid #111827;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cert-qr-box img,
+.cert-qr-box canvas {
+  width: 82px !important;
+  height: 82px !important;
+  display: block;
+}
+
+.cert-qr-meta {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.65rem;
+  font-weight: 700;
+  color: #111827;
+  text-align: center;
+  margin-top: 4px;
+}
+
+.cert-qr-meta .cert-id-tag {
+  color: #ff007a;
+}
+
+/* Signature Items */
+.cert-signature-item {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.cert-sig-line {
+  width: 85%;
+  height: 1px;
+  background: #111827;
+  margin-bottom: 6px;
+}
+
+.cert-sig-visual {
+  height: 35px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  margin-bottom: 2px;
+}
+
+.sig-graphic {
+  font-family: 'Playfair Display', cursive, serif;
+  font-style: italic;
+  font-size: 1.15rem;
+  color: #1e3a8a;
+  opacity: 0.85;
+}
+
+.cert-sig-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #111827;
+}
+
+.cert-sig-role {
+  font-size: 0.7rem;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+/* Date & ID Meta strip */
+.cert-meta-strip {
+  position: absolute;
+  bottom: 26px;
+  left: 45px;
+  right: 45px;
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.68rem;
+  color: #6b7280;
+  z-index: 3;
+}
+
+/* Verification URL banner below certificate in web view */
+.cert-verify-info-banner {
+  text-align: center;
+  margin-top: 1rem;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.cert-verify-info-banner a {
+  color: var(--primary);
+  text-decoration: underline;
+}
+
+/* ==================================================
+   PRINT MEDIA RULES (PERFECT A4 LANDSCAPE)
+   ================================================== */
+@media print {
+  @page {
+    size: A4 landscape;
+    margin: 0;
+  }
+
+  html, body {
+    background: #ffffff !important;
+    background-image: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 297mm;
+    height: 210mm;
+  }
+
+  .site-header,
+  .site-footer,
+  .no-print,
+  .nav-links,
+  .terminal-card:not(#printableCard),
+  .action-row,
+  .cert-verify-info-banner,
+  .page-title,
+  .terminal-tag,
+  .subtitle {
+    display: none !important;
+  }
+
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .certificate-preview-wrapper {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+
+  .certificate-canvas {
+    width: 297mm !important;
+    height: 210mm !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 12mm 14mm !important;
+    page-break-after: avoid !important;
+    page-break-inside: avoid !important;
+    margin: 0 !important;
+  }
+
+  .cert-outer-border {
+    top: 5mm;
+    left: 5mm;
+    right: 5mm;
+    bottom: 5mm;
+  }
+
+  .cert-inner-border {
+    top: 7mm;
+    left: 7mm;
+    right: 7mm;
+    bottom: 7mm;
+  }
+
+  .cert-corner-tl { top: 8mm; left: 8mm; }
+  .cert-corner-tr { top: 8mm; right: 8mm; }
+  .cert-corner-bl { bottom: 8mm; left: 8mm; }
+  .cert-corner-br { bottom: 8mm; right: 8mm; }
+}

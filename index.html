@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en" data-root="./">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Kshetra 2026 | Official Certificate Portal — NEXAA</title>
+  <meta name="description" content="Official Certificate Retrieval and Verification Portal for AI Kshetra 2026, organized by NEXAA at R.V.R. & J.C. College of Engineering, Guntur.">
+  <meta property="og:title" content="AI Kshetra 2026 | Certificate Portal">
+  <meta property="og:description" content="Retrieve and verify official participation certificates for AI Kshetra 2026 technical symposium.">
+  <meta property="og:type" content="website">
+
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff007a'>&gt;_</text></svg>">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/certificate.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-inner container">
+      <a href="index.html" class="terminal-brand">
+        <span class="prompt">&gt;_</span> <span class="brand-text">AI_KSHETRA</span>
+      </a>
+      <nav class="nav-links" aria-label="Main Navigation">
+        <a href="index.html" class="nav-link active">[ Home ]</a>
+        <a href="certificate/index.html" class="nav-link">[ Certificate ]</a>
+        <a href="verify/index.html" class="nav-link">[ Verify ]</a>
+        <a href="about/index.html" class="nav-link">[ About ]</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Hero / Terminal Command Interface -->
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 2.5rem;">
+    
+    <!-- Hero Terminal Card -->
+    <section class="terminal-card" aria-labelledby="hero-title">
+      <div class="corner-marker corner-tl">+</div>
+      <div class="corner-marker corner-tr">+</div>
+      <div class="corner-marker corner-bl">+</div>
+      <div class="corner-marker corner-br">+</div>
+
+      <div class="terminal-tag">// 01 / PARTICIPATION_CREDENTIAL_SYSTEM</div>
+      <h1 id="hero-title" class="page-title"><span class="prompt">&gt;_</span> AI_KSHETRA_2026</h1>
+      <p class="subtitle">
+        Official Certificate Retrieval &amp; Verification System. All registered participants who attended AI Kshetra 2026 can retrieve their verified digital e-certificate using their registered phone number.
+      </p>
+
+      <div class="action-row" style="display:flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2rem;">
+        <a href="certificate/index.html" class="btn btn-primary" id="btnHeroGetCert">
+          [ GET MY CERTIFICATE -&gt; ]
+        </a>
+        <a href="verify/index.html" class="btn btn-outline" id="btnHeroVerify">
+          [ VERIFY A CERTIFICATE -&gt; ]
+        </a>
+      </div>
+
+      <!-- Quick Phone Lookup Panel -->
+      <div style="border-top: 1px dashed var(--border-pink); padding-top: 1.5rem; margin-top: 1rem;">
+        <div class="terminal-tag">// QUICK_ACCESS / DIRECT_PHONE_LOOKUP</div>
+        <div class="input-terminal-group">
+          <label for="inputPhoneNumber" class="input-label">
+            <span class="prompt">&gt;</span> ENTER REGISTERED PHONE NUMBER
+          </label>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <div class="input-bracket-wrapper" style="flex: 1; min-width: 260px;">
+              <span class="input-prefix">[ +91</span>
+              <input 
+                type="tel" 
+                id="inputPhoneNumber" 
+                class="terminal-input" 
+                placeholder="9876543210" 
+                autocomplete="tel" 
+                inputmode="numeric"
+                maxlength="15"
+                aria-label="Registered Indian Mobile Number"
+              >
+              <span class="input-prefix">]</span>
+            </div>
+            <button type="button" id="btnLookupParticipant" class="btn btn-primary">
+              [ VERIFY PARTICIPANT -&gt; ]
+            </button>
+          </div>
+        </div>
+
+        <!-- Terminal Status Prompt -->
+        <div id="terminalStatusPrompt" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); min-height: 1.2rem; margin-top: 0.5rem;">
+          &gt; READY. ENTER PHONE NUMBER TO QUERY PARTICIPANT INDEX.
+        </div>
+      </div>
+
+      <!-- System Status Bar -->
+      <div class="terminal-status-box">
+        <div class="status-head">// SYSTEM_STATUS</div>
+        <div class="status-grid">
+          <div class="status-grid-item">
+            <span>CERTIFICATE DATABASE:</span> <span>ONLINE</span>
+          </div>
+          <div class="status-grid-item">
+            <span>EVENT:</span> <span>AI KSHETRA 2026</span>
+          </div>
+          <div class="status-grid-item">
+            <span>ISSUER:</span> <span>NEXAA</span>
+          </div>
+          <div class="status-grid-item">
+            <span>VENUE:</span> <span>R.V.R. &amp; J.C. COLLEGE OF ENGG</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Result Panel -->
+    <div id="portalResultPanel" style="display: none;"></div>
+
+    <!-- Dynamic Inline Certificate Preview -->
+    <section id="certPreviewSection" style="display: none;" class="terminal-card" aria-label="Certificate Preview">
+      <div class="corner-marker corner-tl">+</div>
+      <div class="corner-marker corner-tr">+</div>
+      <div class="corner-marker corner-bl">+</div>
+      <div class="corner-marker corner-br">+</div>
+
+      <div class="terminal-tag">// 03 / OFFICIAL_CREDENTIAL_PREVIEW</div>
+      <h2 class="section-title"><span class="prompt">&gt;_</span> CERTIFICATE_PREVIEW</h2>
+      
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;" class="no-print">
+        <button type="button" id="btnDownloadPdf" class="btn btn-primary">
+          [ DOWNLOAD CERTIFICATE (PDF) ]
+        </button>
+        <button type="button" id="btnPrintCert" class="btn btn-outline">
+          [ PRINT CERTIFICATE ]
+        </button>
+      </div>
+
+      <!-- Certificate Canvas (A4 Landscape) -->
+      <div class="certificate-preview-wrapper">
+        <div id="printableCertificate" class="certificate-canvas">
+          <!-- Borders & Ornaments -->
+          <div class="cert-outer-border"></div>
+          <div class="cert-inner-border"></div>
+          <div class="cert-corner cert-corner-tl"></div>
+          <div class="cert-corner cert-corner-tr"></div>
+          <div class="cert-corner cert-corner-bl"></div>
+          <div class="cert-corner cert-corner-br"></div>
+          <div class="cert-watermark">AI KSHETRA</div>
+
+          <!-- Certificate Header -->
+          <div class="cert-header">
+            <div class="cert-institution-block">
+              <div class="cert-inst-title">R.V.R. &amp; J.C. College of Engineering</div>
+              <div class="cert-inst-sub">Autonomous Institution &bull; Accredited by NBA &amp; NAAC with 'A+' Grade &bull; Guntur, AP</div>
+              <div class="cert-inst-sub" style="color: #ff007a; font-weight: 700; margin-top: 3px;">
+                NEXAA &mdash; Next Gen Engineers &amp; AI Association
+              </div>
+            </div>
+            <div class="cert-brand-badge">
+              <div class="cert-event-title">&gt;_ AI KSHETRA 2026</div>
+              <div class="cert-event-tag">ANNUAL NATIONAL AI SYMPOSIUM</div>
+            </div>
+          </div>
+
+          <!-- Certificate Body -->
+          <div class="cert-body">
+            <div class="cert-title-heading" id="certTypeDisplay">CERTIFICATE OF PARTICIPATION</div>
+            <div class="cert-presentation-text">This certificate is proudly presented to</div>
+            <div class="cert-recipient-name" id="certParticipantName">PARTICIPANT NAME</div>
+            <div class="cert-achievement-text">
+              of <span class="cert-college-highlight" id="certCollegeName">R.V.R. &amp; J.C. College of Engineering</span> for successfully participating in 
+              <span class="cert-event-highlight" id="certEventName">OPEN SESAME</span> as part of <strong>AI Kshetra 2026</strong>, organized by 
+              <strong>NEXAA (Next Gen Engineers &amp; AI Association)</strong>, Department of Computer Science &amp; Business Systems / AIML on 
+              <span id="certDateDisplay">09 October 2026</span>.
+            </div>
+          </div>
+
+          <!-- Certificate Footer -->
+          <div class="cert-footer">
+            <!-- QR Verification Block -->
+            <div class="cert-qr-block">
+              <div class="cert-qr-box" id="certQrCode"></div>
+              <div class="cert-qr-meta">
+                <span>SCAN TO VERIFY</span><br>
+                <span class="cert-id-tag" id="certIdDisplay">AIK26-XXXX</span>
+              </div>
+            </div>
+
+            <!-- Signature 1 -->
+            <div class="cert-signature-item">
+              <div class="cert-sig-visual">
+                <span class="sig-graphic">Dr. K. Swaminathan</span>
+              </div>
+              <div class="cert-sig-line"></div>
+              <div class="cert-sig-name">Faculty Coordinator</div>
+              <div class="cert-sig-role">NEXAA / AI Kshetra 2026</div>
+            </div>
+
+            <!-- Signature 2 -->
+            <div class="cert-signature-item">
+              <div class="cert-sig-visual">
+                <span class="sig-graphic">P. Hemanth Kumar</span>
+              </div>
+              <div class="cert-sig-line"></div>
+              <div class="cert-sig-name">Student Convener</div>
+              <div class="cert-sig-role">NEXAA Association</div>
+            </div>
+
+            <!-- Signature 3 -->
+            <div class="cert-signature-item">
+              <div class="cert-sig-visual">
+                <span class="sig-graphic">Dr. K. Ravindra</span>
+              </div>
+              <div class="cert-sig-line"></div>
+              <div class="cert-sig-name">Principal / HOD</div>
+              <div class="cert-sig-role">R.V.R. &amp; J.C. CoE, Guntur</div>
+            </div>
+          </div>
+
+          <!-- Meta Strip -->
+          <div class="cert-meta-strip">
+            <span>OFFICIAL DIGITALLY SIGNED CREDENTIAL</span>
+            <span>DATE: 09 OCTOBER 2026</span>
+            <span>R.V.R. &amp; J.C. COLLEGE OF ENGINEERING, GUNTUR</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="cert-verify-info-banner no-print">
+        &gt; PUBLIC VERIFICATION ENDPOINT: <a id="certVerifyUrlText" href="#" target="_blank">Loading...</a>
+      </div>
+    </section>
+
+    <!-- Horizontal Divider Line -->
+    <hr class="section-divider">
+
+    <!-- Events Matrix Section (Visual Reference from Screenshot) -->
+    <section aria-labelledby="events-matrix-title">
+      <div class="terminal-tag">// 01 / FEATURED_CHALLENGES</div>
+      <h2 id="events-matrix-title" class="page-title"><span class="prompt">&gt;_</span> EVENTS_MATRIX</h2>
+      <p class="subtitle">
+        3 high-intensity technical challenges designed to test skill, speed, and real-world intelligence.
+      </p>
+
+      <div class="events-matrix-grid">
+        <!-- Event 1: Open Sesame -->
+        <article class="event-card">
+          <div class="corner-marker corner-tl">+</div>
+          <div class="corner-marker corner-tr">+</div>
+          <div class="corner-marker corner-bl">+</div>
+          <div class="corner-marker corner-br">+</div>
+
+          <div>
+            <div class="event-card-header">
+              <span class="event-num">&gt; EVENT_001</span>
+              <span class="event-category">[ MYSTERY CHALLENGE ]</span>
+            </div>
+            <h3 class="event-title">Open Sesame</h3>
+            <div class="event-tagline">40 DOORS. 30 MINUTES. 3 TUNNELS.</div>
+            <p class="event-desc">
+              Enter a maze of puzzles, logic, coding, riddles, and unexpected challenges. Solve, choose your path, and see how far your team can go.
+            </p>
+          </div>
+
+          <div>
+            <div class="event-meta">
+              <div class="meta-row">
+                <span class="meta-icon">&#128197;</span> 09 October 2026
+              </div>
+              <div class="meta-row">
+                <span class="meta-icon">&#128205;</span> R.V.R. &amp; J.C. College of Engineering, GUNTUR
+              </div>
+            </div>
+
+            <div class="info-note">
+              <span class="note-prefix">// NOTE:</span> E-Certificate is issued for all attended participants.
+            </div>
+
+            <div class="event-actions">
+              <a href="certificate/index.html" class="btn btn-outline">[ RETRIEVE CERTIFICATE -&gt; ]</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Event 2: Code Warz -->
+        <article class="event-card">
+          <div class="corner-marker corner-tl">+</div>
+          <div class="corner-marker corner-tr">+</div>
+          <div class="corner-marker corner-bl">+</div>
+          <div class="corner-marker corner-br">+</div>
+
+          <div>
+            <div class="event-card-header">
+              <span class="event-num">&gt; EVENT_002</span>
+              <span class="event-category">[ COMPETITIVE PROGRAMMING ]</span>
+            </div>
+            <h3 class="event-title">Code Warz</h3>
+            <div class="event-tagline">THINK FAST. CODE SMART. OUTLAST THE CLOCK.</div>
+            <p class="event-desc">
+              Survive the Prelims, break through 4 technical stages, and prove how far your team can push its coding, algorithms, and problem-solving skills.
+            </p>
+          </div>
+
+          <div>
+            <div class="event-meta">
+              <div class="meta-row">
+                <span class="meta-icon">&#128197;</span> 09 October 2026
+              </div>
+              <div class="meta-row">
+                <span class="meta-icon">&#128205;</span> R.V.R. &amp; J.C. College of Engineering, GUNTUR
+              </div>
+            </div>
+
+            <div class="info-note">
+              <span class="note-prefix">// NOTE:</span> E-Certificate is issued for all attended participants.
+            </div>
+
+            <div class="event-actions">
+              <a href="certificate/index.html" class="btn btn-outline">[ RETRIEVE CERTIFICATE -&gt; ]</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Event 3: World of Agents -->
+        <article class="event-card">
+          <div class="corner-marker corner-tl">+</div>
+          <div class="corner-marker corner-tr">+</div>
+          <div class="corner-marker corner-bl">+</div>
+          <div class="corner-marker corner-br">+</div>
+
+          <div>
+            <div class="event-card-header">
+              <span class="event-num">&gt; EVENT_003</span>
+              <span class="event-category">[ AI &amp; AUTOMATION CHALLENGE ]</span>
+            </div>
+            <h3 class="event-title">World of Agents</h3>
+            <div class="event-tagline">DON'T JUST USE AI. BUILD SOMETHING THAT WORKS.</div>
+            <p class="event-desc">
+              Explore AI agents, automation, and intelligent workflows &mdash; then turn your ideas into a working automation challenge.
+            </p>
+          </div>
+
+          <div>
+            <div class="event-meta">
+              <div class="meta-row">
+                <span class="meta-icon">&#128197;</span> 09 October 2026
+              </div>
+              <div class="meta-row">
+                <span class="meta-icon">&#128205;</span> R.V.R. &amp; J.C. College of Engineering, GUNTUR
+              </div>
+            </div>
+
+            <div class="info-note">
+              <span class="note-prefix">// NOTE:</span> E-Certificate is issued for all attended participants.
+            </div>
+
+            <div class="event-actions">
+              <a href="certificate/index.html" class="btn btn-outline">[ RETRIEVE CERTIFICATE -&gt; ]</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-col" style="max-width: 380px;">
+          <div class="terminal-brand" style="margin-bottom: 0.5rem;">
+            <span class="prompt">&gt;_</span> AI_KSHETRA 2026
+          </div>
+          <p>
+            National Level Technical Symposium organized by <strong>NEXAA</strong> (Next Gen Engineers &amp; AI Association).
+          </p>
+          <p style="margin-top: 0.5rem;">
+            <strong>R.V.R. &amp; J.C. College of Engineering</strong><br>
+            Chandramoulipuram, Chowdavaram, Guntur, AP - 522019
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>// PORTAL_NAVIGATION</h4>
+          <p><a href="index.html" class="nav-link" style="padding-left:0;">[ HOME ]</a></p>
+          <p><a href="certificate/index.html" class="nav-link" style="padding-left:0;">[ CERTIFICATES ]</a></p>
+          <p><a href="verify/index.html" class="nav-link" style="padding-left:0;">[ VERIFICATION ]</a></p>
+          <p><a href="about/index.html" class="nav-link" style="padding-left:0;">[ ABOUT NEXAA ]</a></p>
+        </div>
+
+        <div class="footer-col">
+          <h4>// SYSTEM_METRICS</h4>
+          <p><span class="footer-tag">STATUS:</span> OPERATIONAL</p>
+          <p><span class="footer-tag">ENCRYPTION:</span> SHA-256 WEBCRYPTO</p>
+          <p><span class="footer-tag">HOSTING:</span> GITHUB PAGES STATIC</p>
+          <p><span class="footer-tag">EVENT DATE:</span> 09 OCTOBER 2026</p>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 AI KSHETRA &bull; NEXAA &bull; R.V.R. &amp; J.C. COLLEGE OF ENGINEERING</div>
+        <div>TERMINAL_PROTOCOL_VER_2.6</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/vendor/qrcode.min.js"></script>
+  <script src="assets/js/vendor/html2pdf.bundle.min.js"></script>
+  <script src="assets/js/config.js"></script>
+  <script src="assets/js/crypto.js"></script>
+  <script src="assets/js/certificate.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

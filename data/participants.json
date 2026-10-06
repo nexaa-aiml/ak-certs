@@ -1,0 +1,62 @@
+[
+  {
+    "certificateId": "AIK26-0001",
+    "phoneHash": "7619ee8cea49187f309616e30ecf54be072259b43760f1f550a644945d5572f2",
+    "name": "Aarav Sharma",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0002",
+    "phoneHash": "f6e8240a80effb8326390bbefb5a4ad9fe10e3029f41028b84bda4e9291d88e9",
+    "name": "Pooja Reddy",
+    "event": "Code Warz",
+    "eventTrack": "Competitive Programming",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0003",
+    "phoneHash": "0b940fdc24ec51a1e8e0d374324eb1ae36c8dd28309926f2bd97133da7f6523b",
+    "name": "Sai Teja Varma",
+    "event": "World of Agents",
+    "eventTrack": "AI & Automation Challenge",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0004",
+    "phoneHash": "5422f73d038b3c0ca4e509c468d4baea162b850342a56eeda92af4cfe36242c5",
+    "name": "Kavya Sree N.",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "Vignan's Foundation for Science, Technology & Research",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0005",
+    "phoneHash": "3cad4efc0d9203ed2c82ce46ee2d91647b88119eb138904bb42ac97d618a2e7a",
+    "name": "Manoj Kumar P.",
+    "event": "Code Warz",
+    "eventTrack": "Competitive Programming",
+    "college": "KL University, Vaddeswaram",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  },
+  {
+    "certificateId": "AIK26-0006",
+    "phoneHash": "8ff2bccc4078a7c9846e2c6e9f2f9af3ceb96b4eea7f8327d9d4beb4660fe81f",
+    "name": "Bhavana Chodavarapu",
+    "event": "World of Agents",
+    "eventTrack": "AI & Automation Challenge",
+    "college": "R.V.R. & J.C. College of Engineering",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026"
+  }
+]
