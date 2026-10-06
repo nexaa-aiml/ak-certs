@@ -8,6 +8,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff007a'>&gt;_</text></svg>">
   
   <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/certificate.css">
 </head>
 <body>
 
@@ -28,8 +29,11 @@
 
   <main class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
 
-    <!-- Verification Query Box -->
-    <section class="terminal-card" aria-labelledby="verify-heading">
+    <!-- Verification Result Card (Shows directly on QR Scan at Top) -->
+    <div id="verificationResult" style="display: none;"></div>
+
+    <!-- Verification Query Box (Shown for manual search or when requested) -->
+    <section id="verifyQueryBox" class="terminal-card" aria-labelledby="verify-heading">
       <div class="corner-marker corner-tl">+</div>
       <div class="corner-marker corner-tr">+</div>
       <div class="corner-marker corner-bl">+</div>
@@ -94,9 +98,6 @@
       </div>
     </section>
 
-    <!-- Verification Result Card (Populated Dynamically) -->
-    <div id="verificationResult" style="display: none;"></div>
-
   </main>
 
   <!-- Site Footer -->
@@ -135,8 +136,11 @@
   </footer>
 
   <!-- Scripts -->
+  <script src="../assets/js/vendor/qrcode.min.js"></script>
+  <script src="../assets/js/vendor/html2pdf.bundle.min.js"></script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/crypto.js"></script>
+  <script src="../assets/js/certificate.js"></script>
   <script src="../assets/js/verification.js"></script>
 </body>
 </html>

@@ -10,33 +10,38 @@
     const inputCertId = document.getElementById('inputCertId');
     const btnVerify = document.getElementById('btnVerifyCert');
     const resultContainer = document.getElementById('verificationResult');
+    const querySection = document.getElementById('verifyQueryBox');
     const promptStatus = document.getElementById('promptStatus');
 
     if (!btnVerify) return;
 
-    // Check if query parameter ?id=... is present in URL
+    // Check if query parameter ?id=... is present in URL (e.g. from scanned QR code)
     const urlParams = new URLSearchParams(window.location.search);
     const queryId = urlParams.get('id');
 
     if (queryId) {
       if (inputCertId) inputCertId.value = queryId;
-      executeVerification(queryId);
+      // Auto-hide the manual search form so participant details show directly at the top
+      if (querySection) {
+        querySection.style.display = 'none';
+      }
+      executeVerification(queryId, true);
     }
 
     btnVerify.addEventListener('click', () => {
       const id = inputCertId.value.trim();
-      executeVerification(id);
+      executeVerification(id, false);
     });
 
     if (inputCertId) {
       inputCertId.addEventListener('keydown', (e) => {
         if (e.key === 'Enter') {
-          executeVerification(inputCertId.value.trim());
+          executeVerification(inputCertId.value.trim(), false);
         }
       });
     }
 
-    async function executeVerification(certId) {
+    async function executeVerification(certId, isFromQr) {
       if (!certId) {
         showError("INVALID_INPUT", "Please enter a valid Certificate ID (e.g. AIK26-0001).");
         return;
@@ -52,7 +57,7 @@
         const res = await window.AI_AUTH.verifyParticipantById(certId);
 
         if (res.success && res.participant) {
-          showSuccess(res.participant);
+          showSuccess(res.participant, isFromQr);
         } else {
           showError("CERTIFICATE_NOT_FOUND", res.error || "The supplied certificate ID could not be verified.");
         }
@@ -64,7 +69,7 @@
       }
     }
 
-    function showSuccess(p) {
+    function showSuccess(p, isFromQr) {
       if (!resultContainer) return;
 
       const root = window.AI_CONFIG.getRootPath();
@@ -78,32 +83,36 @@
         <div class="corner-marker corner-bl">+</div>
         <div class="corner-marker corner-br">+</div>
 
-        <div class="terminal-tag">// 02 / VERIFICATION_REPORT</div>
-        <h2 class="section-title">&gt;_ CERTIFICATE_VERIFICATION</h2>
+        <div class="terminal-tag">// 01 / ${isFromQr ? 'QR_SCAN_VERIFIED' : 'AUTHENTICITY_REPORT'}</div>
+        <h1 class="page-title"><span class="prompt">&gt;_</span> CERTIFICATE_VERIFIED</h1>
 
-        <div class="status-badge authentic-badge">
-          <span class="icon">[✓]</span> CERTIFICATE AUTHENTIC & VALID
+        <div class="status-badge authentic-badge" style="margin-bottom: 1.5rem;">
+          <span class="icon">[✓]</span> OFFICIAL CERTIFICATE AUTHENTIC &amp; VALID
         </div>
 
         <div class="terminal-kv-grid">
+          <div class="kv-row">
+            <span class="kv-key">PARTICIPANT NAME:</span>
+            <span class="kv-val highlight-val" style="font-size: 1.3rem; color: var(--primary);">${p.name}</span>
+          </div>
           <div class="kv-row">
             <span class="kv-key">CERTIFICATE ID:</span>
             <span class="kv-val highlight-val">${p.certificateId}</span>
           </div>
           <div class="kv-row">
-            <span class="kv-key">PARTICIPANT:</span>
-            <span class="kv-val">${p.name}</span>
-          </div>
-          <div class="kv-row">
-            <span class="kv-key">EVENT:</span>
-            <span class="kv-val">${p.event}</span>
+            <span class="kv-key">EVENT CHALLENGE:</span>
+            <span class="kv-val" style="font-weight: 800;">${p.event}</span>
           </div>
           <div class="kv-row">
             <span class="kv-key">TRACK / DETAILS:</span>
             <span class="kv-val">${p.eventTrack || 'Official Challenge Track'}</span>
           </div>
           <div class="kv-row">
-            <span class="kv-key">INSTITUTION:</span>
+            <span class="kv-key">CREDENTIAL TYPE:</span>
+            <span class="kv-val">${p.certificateType || 'Certificate of Participation'}</span>
+          </div>
+          <div class="kv-row">
+            <span class="kv-key">COLLEGE / INSTITUTION:</span>
             <span class="kv-val">${p.college}</span>
           </div>
           <div class="kv-row">
@@ -112,23 +121,49 @@
           </div>
           <div class="kv-row">
             <span class="kv-key">ISSUED BY:</span>
-            <span class="kv-val">NEXAA &mdash; R.V.R. & J.C. College of Engineering, Guntur</span>
+            <span class="kv-val">NEXAA &mdash; R.V.R. &amp; J.C. College of Engineering, Guntur</span>
           </div>
           <div class="kv-row">
-            <span class="kv-key">DATE:</span>
+            <span class="kv-key">DATE OF ISSUE:</span>
             <span class="kv-val">${p.date}</span>
           </div>
           <div class="kv-row">
             <span class="kv-key">STATUS:</span>
-            <span class="kv-val status-text-verified">VERIFIED &bull; OFFICIAL RECORD</span>
+            <span class="kv-val status-text-verified">[✓] VERIFIED &bull; OFFICIAL REGISTRY RECORD</span>
           </div>
         </div>
 
-        <div class="action-row" style="margin-top: 1.5rem;">
-          <a href="${viewUrl}" class="btn btn-primary">[ VIEW CERTIFICATE -&gt; ]</a>
+        <div class="action-row" style="margin-top: 1.75rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+          <a href="${viewUrl}" class="btn btn-primary">[ VIEW FULL CERTIFICATE -&gt; ]</a>
+          <button type="button" class="btn btn-outline" id="btnDirectDownloadPdf">[ DOWNLOAD PDF ]</button>
           <button type="button" class="btn btn-outline" onclick="window.print()">[ PRINT RECORD ]</button>
+          <button type="button" class="btn btn-dark" id="btnVerifyAnother">[ VERIFY ANOTHER ID ]</button>
         </div>
       `;
+
+      // Wire direct PDF download button
+      const btnDirectDownload = document.getElementById('btnDirectDownloadPdf');
+      if (btnDirectDownload && window.AI_CERT) {
+        btnDirectDownload.addEventListener('click', () => {
+          window.AI_CERT.downloadPdf(p.certificateId);
+        });
+      }
+
+      // Wire "Verify another" button to show search box
+      const btnVerifyAnother = document.getElementById('btnVerifyAnother');
+      if (btnVerifyAnother && querySection) {
+        btnVerifyAnother.addEventListener('click', () => {
+          querySection.style.display = 'block';
+          querySection.scrollIntoView({ behavior: 'smooth' });
+          if (inputCertId) {
+            inputCertId.value = '';
+            inputCertId.focus();
+          }
+        });
+      }
+
+      // Scroll smoothly to result if on mobile
+      resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
       if (promptStatus) {
         promptStatus.innerHTML = `&gt; STATUS: RECORD FOUND. CERTIFICATE ID [${p.certificateId}] VERIFIED.`;
@@ -137,6 +172,11 @@
 
     function showError(code, msg) {
       if (!resultContainer) return;
+
+      // Ensure search form is visible so user can retry
+      if (querySection) {
+        querySection.style.display = 'block';
+      }
 
       resultContainer.className = "terminal-card verification-card status-failed";
       resultContainer.style.display = "block";
