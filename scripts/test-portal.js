@@ -134,11 +134,11 @@ async function runTests() {
   }
 
   // Test lookup by ID
-  const idMatch = dataset.find(p => p.certificateId === 'AIK26-0002');
+  const idMatch = dataset.find(p => p.certificateId === 'AIK26-0007');
   if (idMatch && idMatch.name === 'Pooja Reddy') {
-    console.log(`  ✓ Verify ID AIK26-0002: Matched "${idMatch.name}" | Event: ${idMatch.event}`);
+    console.log(`  ✓ Verify ID AIK26-0007: Matched "${idMatch.name}" | Event: ${idMatch.event}`);
   } else {
-    console.error('  ✗ Verify ID AIK26-0002 failed');
+    console.error('  ✗ Verify ID AIK26-0007 failed');
   }
 
   server.close();

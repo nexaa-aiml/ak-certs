@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
 AI KSHETRA 2026 - Python Certificate & Dataset Generator
-NEXAA – Next Gen Engineers & AI Association
+NEXAA - Next Gen Engineers & AI Association
 R.V.R. & J.C. College of Engineering, Guntur
 
 This script:
@@ -40,7 +40,7 @@ SITE_BASE_URL = "https://your-username.github.io/your-repo-name"
 EVENT_NAME = "AI KSHETRA 2026"
 EVENT_DATE = "09 October 2026"
 INSTITUTION = "R.V.R. & J.C. College of Engineering"
-ORGANIZER = "NEXAA – Next Gen Engineers & AI Association"
+ORGANIZER = "NEXAA - Next Gen Engineers & AI Association"
 
 
 # =====================================================================
