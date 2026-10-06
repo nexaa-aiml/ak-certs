@@ -1,6 +1,7 @@
 const http = require('http');
 const crypto = require('crypto');
 const fs = require('fs');
+const path = require('path');
 
 async function testFetch(url) {
   return new Promise((resolve, reject) => {
@@ -38,6 +39,24 @@ async function runTests() {
   console.log('> RUNNING AUTOMATED AUDIT FOR CERTIFICATE PORTAL');
   console.log('==================================================');
 
+  // Start internal static server on port 8099
+  const server = http.createServer((req, res) => {
+    let filePath = '.' + decodeURIComponent(req.url.split('?')[0]);
+    if (filePath === './') filePath = './index.html';
+    if (fs.existsSync(filePath) && fs.statSync(filePath).isDirectory()) filePath = path.join(filePath, 'index.html');
+    const ext = path.extname(filePath);
+    const mime = { '.html': 'text/html', '.css': 'text/css', '.js': 'application/javascript', '.json': 'application/json', '.pdf': 'application/pdf' };
+    if (fs.existsSync(filePath)) {
+      res.writeHead(200, { 'Content-Type': mime[ext] || 'text/plain' });
+      fs.createReadStream(filePath).pipe(res);
+    } else {
+      res.writeHead(404);
+      res.end('Not found');
+    }
+  });
+
+  await new Promise(r => server.listen(8099, r));
+
   // Test 1: Phone normalization test suite
   console.log('\n[TEST 1] Phone Normalization:');
   const testCases = [
@@ -46,8 +65,8 @@ async function runTests() {
     { in: '919876543210', expected: '9876543210' },
     { in: '09876543210', expected: '9876543210' },
     { in: '+91 98765-43210', expected: '9876543210' },
-    { in: '1234567890', expected: null }, // Doesn't start with 6-9
-    { in: '98765', expected: null }       // Too short
+    { in: '1234567890', expected: null },
+    { in: '98765', expected: null }
   ];
 
   let passNorm = true;
@@ -62,21 +81,22 @@ async function runTests() {
   }
 
   // Test 2: HTTP routes test
-  console.log('\n[TEST 2] HTTP Endpoints Verification:');
+  console.log('\n[TEST 2] HTTP Endpoints & Pre-generated Static PDFs:');
   const routes = [
-    'http://localhost:8088/index.html',
-    'http://localhost:8088/certificate/index.html',
-    'http://localhost:8088/verify/index.html',
-    'http://localhost:8088/certificate/view/index.html',
-    'http://localhost:8088/about/index.html',
-    'http://localhost:8088/data/participants.json',
-    'http://localhost:8088/assets/css/main.css',
-    'http://localhost:8088/assets/css/certificate.css',
-    'http://localhost:8088/assets/js/config.js',
-    'http://localhost:8088/assets/js/crypto.js',
-    'http://localhost:8088/assets/js/certificate.js',
-    'http://localhost:8088/assets/js/vendor/qrcode.min.js',
-    'http://localhost:8088/assets/js/vendor/html2pdf.bundle.min.js'
+    'http://localhost:8099/index.html',
+    'http://localhost:8099/certificate/index.html',
+    'http://localhost:8099/verify/index.html',
+    'http://localhost:8099/certificate/view/index.html',
+    'http://localhost:8099/about/index.html',
+    'http://localhost:8099/data/participants.json',
+    'http://localhost:8099/certificates/AIK26-0001.pdf',
+    'http://localhost:8099/assets/css/main.css',
+    'http://localhost:8099/assets/css/certificate.css',
+    'http://localhost:8099/assets/js/config.js',
+    'http://localhost:8099/assets/js/crypto.js',
+    'http://localhost:8099/assets/js/certificate.js',
+    'http://localhost:8099/assets/js/vendor/qrcode.min.js',
+    'http://localhost:8099/assets/js/vendor/html2pdf.bundle.min.js'
   ];
 
   let passRoutes = true;
@@ -120,6 +140,8 @@ async function runTests() {
   } else {
     console.error('  ✗ Verify ID AIK26-0002 failed');
   }
+
+  server.close();
 
   console.log('\n==================================================');
   if (passNorm && passRoutes) {
