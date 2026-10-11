@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Kshetra 2026 | Official Certificate View</title>
-  <meta name="description" content="View, download, and print official participation certificate for AI Kshetra 2026.">
+  <title>AI Kshetra 2026 | Certificate View</title>
+  <meta name="description" content="View and download your official AI Kshetra 2026 certificate PDF.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff007a'>&gt;_</text></svg>">
 
   <link rel="stylesheet" href="../../assets/css/main.css">
@@ -12,235 +12,167 @@
 </head>
 <body>
 
-  <!-- Site Header -->
-  <header class="site-header no-print">
+  <header class="site-header">
     <div class="header-inner container">
       <a href="../../index.html" class="terminal-brand">
         <span class="prompt">&gt;_</span> <span class="brand-text">AI_KSHETRA</span>
       </a>
       <nav class="nav-links" aria-label="Main Navigation">
-        <a href="../../index.html" class="nav-link">[ Home ]</a>
-        <a href="../../certificate/index.html" class="nav-link">[ Certificate ]</a>
-        <a href="../../verify/index.html" class="nav-link">[ Verify ]</a>
+        <a href="../../index.html" class="nav-link">[ Home ]</a>        <a href="../../verify/index.html" class="nav-link">[ Verify ]</a>
         <a href="../../about/index.html" class="nav-link">[ About ]</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" style="padding-top: 2rem; padding-bottom: 3rem;">
-    
-    <!-- Top Action / Control Bar -->
-    <div class="no-print" style="margin-bottom: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
-      <div>
-        <div class="terminal-tag">// 03 / CREDENTIAL_VIEWER</div>
-        <h1 class="page-title" style="margin-bottom: 0.2rem;"><span class="prompt">&gt;_</span> PUBLIC_CERTIFICATE_VIEW</h1>
-        <p class="subtitle" style="margin-bottom: 0;">Official verified certificate document for AI Kshetra 2026.</p>
-      </div>
+  <main class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
 
-      <div class="action-row">
-        <button type="button" id="btnDownloadPdf" class="btn btn-primary">
-          [ DOWNLOAD PDF ]
-        </button>
-        <button type="button" id="btnPrintCert" class="btn btn-outline">
-          [ PRINT CERTIFICATE ]
-        </button>
-        <a id="btnCheckVerify" href="../../verify/index.html" class="btn btn-dark">
-          [ VERIFY STATUS ]
-        </a>
-      </div>
-    </div>
-
-    <!-- Error container if ID is missing or invalid -->
-    <div id="viewErrorContainer" style="display: none;" class="terminal-card status-failed">
-      <div class="corner-marker corner-tl">+</div>
-      <div class="corner-marker corner-tr">+</div>
-      <div class="corner-marker corner-bl">+</div>
-      <div class="corner-marker corner-br">+</div>
-
-      <div class="terminal-tag">// ERROR_CODE: CERTIFICATE_NOT_FOUND</div>
-      <h2 class="section-title">&gt;_ ACCESS_DENIED</h2>
-      <p id="viewErrorMessage" class="error-desc">No matching certificate could be found for the provided Certificate ID.</p>
-      
-      <div class="action-row" style="margin-top: 1.5rem; display: flex; gap: 1rem;">
-        <a href="../../verify/index.html" class="btn btn-primary">[ VERIFY ANOTHER ID -&gt; ]</a>
-        <a href="../../certificate/index.html" class="btn btn-outline">[ RETRIEVE VIA PHONE -&gt; ]</a>
-      </div>
-    </div>
-
-    <!-- Certificate Preview Section -->
-    <div id="viewCertificateWrapper" style="display: none;">
-      <div class="certificate-preview-wrapper">
-        <div id="printableCertificate" class="certificate-canvas">
-          <!-- Borders & Ornaments -->
-          <div class="cert-outer-border"></div>
-          <div class="cert-inner-border"></div>
-          <div class="cert-corner cert-corner-tl"></div>
-          <div class="cert-corner cert-corner-tr"></div>
-          <div class="cert-corner cert-corner-bl"></div>
-          <div class="cert-corner cert-corner-br"></div>
-          <div class="cert-watermark">AI KSHETRA</div>
-
-          <!-- Header -->
-          <div class="cert-header">
-            <div class="cert-institution-block">
-              <div class="cert-inst-title">R.V.R. &amp; J.C. College of Engineering</div>
-              <div class="cert-inst-sub">Autonomous Institution &bull; Accredited by NBA &amp; NAAC with 'A+' Grade &bull; Guntur, AP</div>
-              <div class="cert-inst-sub" style="color: #ff007a; font-weight: 700; margin-top: 3px;">
-                NEXAA &mdash; Next Gen Engineers &amp; AI Association
-              </div>
-            </div>
-            <div class="cert-brand-badge">
-              <div class="cert-event-title">&gt;_ AI KSHETRA 2026</div>
-              <div class="cert-event-tag">ANNUAL NATIONAL AI SYMPOSIUM</div>
-            </div>
-          </div>
-
-          <!-- Body -->
-          <div class="cert-body">
-            <div class="cert-title-heading" id="certTypeDisplay">CERTIFICATE OF PARTICIPATION</div>
-            <div class="cert-presentation-text">This certificate is proudly presented to</div>
-            <div class="cert-recipient-name" id="certParticipantName">PARTICIPANT NAME</div>
-            <div class="cert-achievement-text">
-              of <span class="cert-college-highlight" id="certCollegeName">R.V.R. &amp; J.C. College of Engineering</span> for successfully participating in 
-              <span class="cert-event-highlight" id="certEventName">OPEN SESAME</span> as part of <strong>AI Kshetra 2026</strong>, organized by 
-              <strong>NEXAA (Next Gen Engineers &amp; AI Association)</strong>, Department of Computer Science &amp; Business Systems / AIML on 
-              <span id="certDateDisplay">09 October 2026</span>.
-            </div>
-          </div>
-
-          <!-- Footer -->
-          <div class="cert-footer">
-            <div class="cert-qr-block">
-              <div class="cert-qr-box" id="certQrCode"></div>
-              <div class="cert-qr-meta">
-                <span>SCAN TO VERIFY</span><br>
-                <span class="cert-id-tag" id="certIdDisplay">AIK26-XXXX</span>
-              </div>
-            </div>
-
-            <div class="cert-signature-item">
-              <div class="cert-sig-visual"><span class="sig-graphic">Dr. K. Swaminathan</span></div>
-              <div class="cert-sig-line"></div>
-              <div class="cert-sig-name">Faculty Coordinator</div>
-              <div class="cert-sig-role">NEXAA / AI Kshetra 2026</div>
-            </div>
-
-            <div class="cert-signature-item">
-              <div class="cert-sig-visual"><span class="sig-graphic">P. Hemanth Kumar</span></div>
-              <div class="cert-sig-line"></div>
-              <div class="cert-sig-name">Student Convener</div>
-              <div class="cert-sig-role">NEXAA Association</div>
-            </div>
-
-            <div class="cert-signature-item">
-              <div class="cert-sig-visual"><span class="sig-graphic">Dr. K. Ravindra</span></div>
-              <div class="cert-sig-line"></div>
-              <div class="cert-sig-name">Principal / HOD</div>
-              <div class="cert-sig-role">R.V.R. &amp; J.C. CoE, Guntur</div>
-            </div>
-          </div>
-
-          <div class="cert-meta-strip">
-            <span>OFFICIAL DIGITALLY SIGNED CREDENTIAL</span>
-            <span>DATE: 09 OCTOBER 2026</span>
-            <span>R.V.R. &amp; J.C. COLLEGE OF ENGINEERING, GUNTUR</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="cert-verify-info-banner no-print">
-        &gt; PUBLIC VERIFICATION ENDPOINT: <a id="certVerifyUrlText" href="#" target="_blank">Loading...</a>
+    <div id="viewContent">
+      <!-- Populated by view.js -->
+      <div class="terminal-card" style="text-align:center; padding: 3rem;">
+        <div class="terminal-tag">// LOADING...</div>
+        <p style="font-family: var(--font-mono); color: var(--primary); margin-top: 1rem;">
+          &gt; QUERYING CERTIFICATE REGISTRY...
+        </p>
       </div>
     </div>
 
   </main>
 
-  <!-- Site Footer -->
-  <footer class="site-footer no-print">
+  <footer class="site-footer">
     <div class="container">
-      <div class="footer-inner">
-        <div class="footer-col" style="max-width: 380px;">
-          <div class="terminal-brand" style="margin-bottom: 0.5rem;">
-            <span class="prompt">&gt;_</span> AI_KSHETRA 2026
-          </div>
-          <p>
-            Official Certificate Delivery System. R.V.R. &amp; J.C. College of Engineering, Guntur.
-          </p>
-        </div>
-
-        <div class="footer-col">
-          <h4>// DIRECT_LINKS</h4>
-          <p><a href="../../index.html" class="nav-link" style="padding-left:0;">[ HOME ]</a></p>
-          <p><a href="../../certificate/index.html" class="nav-link" style="padding-left:0;">[ RETRIEVE CERTIFICATE ]</a></p>
-          <p><a href="../../verify/index.html" class="nav-link" style="padding-left:0;">[ VERIFY CERTIFICATE ]</a></p>
-        </div>
-
-        <div class="footer-col">
-          <h4>// DOCUMENT</h4>
-          <p><span class="footer-tag">STATUS:</span> OFFICIAL CREDENTIAL</p>
-          <p><span class="footer-tag">PRINT SPEC:</span> A4 LANDSCAPE (297x210mm)</p>
-          <p><span class="footer-tag">VERIFICATION:</span> IMMUTABLE ID</p>
-        </div>
-      </div>
-
       <div class="footer-bottom">
         <div>&copy; 2026 AI KSHETRA &bull; NEXAA &bull; R.V.R. &amp; J.C. COLLEGE OF ENGINEERING</div>
-        <div>TERMINAL_PROTOCOL_VER_2.6</div>
+        <div>TERMINAL_PROTOCOL_VER_3.0</div>
       </div>
     </div>
   </footer>
 
-  <!-- Scripts -->
-  <script src="../../assets/js/vendor/qrcode.min.js"></script>
-  <script src="../../assets/js/vendor/html2pdf.bundle.min.js"></script>
   <script src="../../assets/js/config.js"></script>
   <script src="../../assets/js/crypto.js"></script>
   <script src="../../assets/js/certificate.js"></script>
-
   <script>
-    document.addEventListener('DOMContentLoaded', async () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const certId = urlParams.get('id');
+    (function () {
+      'use strict';
 
-      const wrapper = document.getElementById('viewCertificateWrapper');
-      const errBox = document.getElementById('viewErrorContainer');
-      const errMsg = document.getElementById('viewErrorMessage');
-      const verifyLink = document.getElementById('btnCheckVerify');
-
-      if (!certId) {
-        errBox.style.display = 'block';
-        errMsg.textContent = "No Certificate ID was provided in the URL query string (?id=AIK26-XXXX).";
-        return;
+      function escHtml(str) {
+        if (!str) return '';
+        return String(str)
+          .replace(/&/g, '&amp;')
+          .replace(/</g, '&lt;')
+          .replace(/>/g, '&gt;')
+          .replace(/"/g, '&quot;');
       }
 
-      if (verifyLink) {
-        verifyLink.href = `../../verify/index.html?id=${encodeURIComponent(certId)}`;
-      }
+      async function initView() {
+        const viewContent = document.getElementById('viewContent');
+        const params = new URLSearchParams(window.location.search);
+        const certId = params.get('id');
 
-      try {
+        if (!certId) {
+          viewContent.innerHTML = `
+            <div class="terminal-card">
+              <div class="terminal-tag">// ERROR / MISSING_PARAMETER</div>
+              <h1 class="page-title">&gt;_ NO_CERTIFICATE_ID</h1>
+              <p class="subtitle">No certificate ID was provided. Please scan the QR code on your certificate or use the verification portal.</p>
+              <div class="action-row" style="margin-top: 1.5rem;">
+                <a href="../../verify/index.html" class="btn btn-primary">[ GO TO VERIFY -&gt; ]</a>
+                <a href="../../index.html" class="btn btn-outline">[ GET MY CERT ]</a>
+              </div>
+            </div>`;
+          return;
+        }
+
         const res = await window.AI_AUTH.verifyParticipantById(certId);
 
-        if (res.success && res.participant) {
-          wrapper.style.display = 'block';
-          window.AI_CERT.populateCertificate(res.participant);
-
-          // Wire Download & Print buttons
-          document.getElementById('btnDownloadPdf').addEventListener('click', () => {
-            window.AI_CERT.downloadPdf(res.participant.certificateId);
-          });
-
-          document.getElementById('btnPrintCert').addEventListener('click', () => {
-            window.AI_CERT.printCertificate();
-          });
-        } else {
-          errBox.style.display = 'block';
-          errMsg.textContent = res.error || `Certificate ID "${certId}" was not found in the official registry.`;
+        if (!res.success || !res.certificate) {
+          viewContent.innerHTML = `
+            <div class="terminal-card">
+              <div class="terminal-tag">// ERROR / CERTIFICATE_NOT_FOUND</div>
+              <h1 class="page-title">&gt;_ CERTIFICATE_NOT_FOUND</h1>
+              <p class="subtitle">${escHtml(res.error || 'Certificate ID not found in the registry.')}</p>
+              <div class="action-row" style="margin-top: 1.5rem;">
+                <a href="../../verify/index.html" class="btn btn-outline">[ VERIFY ANOTHER ]</a>
+              </div>
+            </div>`;
+          return;
         }
-      } catch (err) {
-        errBox.style.display = 'block';
-        errMsg.textContent = err.message || "Failed to retrieve certificate record.";
+
+        const cert = res.certificate;
+        document.title = 'AI Kshetra 2026 | ' + cert.certificateType + ' - ' + cert.name;
+
+        viewContent.innerHTML = `
+          <div class="terminal-card">
+            <div class="corner-marker corner-tl">+</div>
+            <div class="corner-marker corner-tr">+</div>
+            <div class="corner-marker corner-bl">+</div>
+            <div class="corner-marker corner-br">+</div>
+
+            <div class="terminal-tag">// 03 / OFFICIAL_CREDENTIAL_VIEW</div>
+            <h1 class="page-title"><span class="prompt">&gt;_</span> CERTIFICATE_VIEW</h1>
+
+            <div class="status-badge authentic-badge" style="margin-bottom: 1.5rem;">
+              <span class="icon">[&checkmark;]</span> OFFICIAL AI KSHETRA 2026 CERTIFICATE
+            </div>
+
+            <div class="terminal-kv-grid">
+              <div class="kv-row">
+                <span class="kv-key">NAME:</span>
+                <span class="kv-val highlight-val" style="font-size: 1.3rem;">${escHtml(cert.name)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">CERTIFICATE ID:</span>
+                <span class="kv-val highlight-val">${escHtml(cert.certificateId)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">EVENT:</span>
+                <span class="kv-val" style="font-weight:800;">${escHtml(cert.event)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">TRACK:</span>
+                <span class="kv-val">${escHtml(cert.eventTrack || 'AI Kshetra 2026')}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">TYPE:</span>
+                <span class="kv-val">${escHtml(cert.certificateType)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">INSTITUTION:</span>
+                <span class="kv-val">${escHtml(cert.college)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">DATE:</span>
+                <span class="kv-val">${escHtml(cert.date)}</span>
+              </div>
+              <div class="kv-row">
+                <span class="kv-key">ISSUED BY:</span>
+                <span class="kv-val">NEXAA &mdash; R.V.R. &amp; J.C. College of Engineering, Guntur</span>
+              </div>
+            </div>
+
+            <div class="action-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <button type="button" class="btn btn-primary" id="btnViewDl">
+                [ &darr; DOWNLOAD CERTIFICATE PDF ]
+              </button>
+              <a href="../../verify/?id=${encodeURIComponent(cert.certificateId)}" class="btn btn-outline">
+                [ VERIFY AUTHENTICITY ]
+              </a>
+              <a href="../../index.html" class="btn btn-dark">
+                [ GET ALL MY CERTIFICATES ]
+              </a>
+            </div>
+          </div>
+        `;
+
+        const btnDl = document.getElementById('btnViewDl');
+        if (btnDl) {
+          btnDl.addEventListener('click', () => {
+            window.AI_CERT.downloadPdf(cert.certificateId, btnDl);
+          });
+        }
       }
-    });
+
+      document.addEventListener('DOMContentLoaded', initView);
+    })();
   </script>
 </body>
 </html>

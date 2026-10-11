@@ -18,7 +18,7 @@
       if (path.endsWith('/verify') || path.endsWith('/verify.html')) {
         window.location.replace('verify/index.html' + search + hash);
       } else if (path.endsWith('/certificate') || path.endsWith('/certificate.html')) {
-        window.location.replace('certificate/index.html' + search + hash);
+        window.location.replace('index.html' + search + hash);
       } else if (path.endsWith('/about') || path.endsWith('/about.html')) {
         window.location.replace('about/index.html' + search + hash);
       }
@@ -35,7 +35,6 @@
       </a>
       <nav class="nav-links">
         <a href="index.html" class="nav-link">[ Home ]</a>
-        <a href="certificate/index.html" class="nav-link">[ Certificate ]</a>
         <a href="verify/index.html" class="nav-link">[ Verify ]</a>
         <a href="about/index.html" class="nav-link">[ About ]</a>
       </nav>
@@ -62,8 +61,7 @@
 
       <div class="action-row" style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
         <a href="index.html" class="btn btn-primary">[ RETURN TO HOME -&gt; ]</a>
-        <a href="certificate/index.html" class="btn btn-outline">[ GET CERTIFICATE -&gt; ]</a>
-        <a href="verify/index.html" class="btn btn-dark">[ VERIFY CERTIFICATE -&gt; ]</a>
+        <a href="verify/index.html" class="btn btn-outline">[ VERIFY CERTIFICATE -&gt; ]</a>
       </div>
     </section>
   </main>

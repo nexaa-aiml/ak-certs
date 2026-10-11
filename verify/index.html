@@ -6,7 +6,7 @@
   <title>AI Kshetra 2026 | Certificate Verification Registry</title>
   <meta name="description" content="Public certificate authenticity verification portal for AI Kshetra 2026, NEXAA, R.V.R. & J.C. College of Engineering.">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%23ff007a'>&gt;_</text></svg>">
-  
+
   <link rel="stylesheet" href="../assets/css/main.css">
   <link rel="stylesheet" href="../assets/css/certificate.css">
 </head>
@@ -19,9 +19,7 @@
         <span class="prompt">&gt;_</span> <span class="brand-text">AI_KSHETRA</span>
       </a>
       <nav class="nav-links" aria-label="Main Navigation">
-        <a href="../index.html" class="nav-link">[ Home ]</a>
-        <a href="../certificate/index.html" class="nav-link">[ Certificate ]</a>
-        <a href="../verify/index.html" class="nav-link active">[ Verify ]</a>
+        <a href="../index.html" class="nav-link">[ Home ]</a>        <a href="../verify/index.html" class="nav-link active">[ Verify ]</a>
         <a href="../about/index.html" class="nav-link">[ About ]</a>
       </nav>
     </div>
@@ -29,72 +27,62 @@
 
   <main class="container" style="padding-top: 2.5rem; padding-bottom: 3rem;">
 
-    <!-- Verification Result Card (Shows directly on QR Scan at Top) -->
+    <!--
+      verificationResult is populated by verification.js when ?id= is in the URL.
+      If no ?id= param exists (direct navigation), the fallback notice below is shown.
+    -->
     <div id="verificationResult" style="display: none;"></div>
 
-    <!-- Verification Query Box (Shown for manual search or when requested) -->
-    <section id="verifyQueryBox" class="terminal-card" aria-labelledby="verify-heading">
+    <!-- Shown only when page is loaded WITHOUT a ?id= QR parameter -->
+    <section id="qrOnlyNotice" class="terminal-card" aria-labelledby="verify-notice-heading">
       <div class="corner-marker corner-tl">+</div>
       <div class="corner-marker corner-tr">+</div>
       <div class="corner-marker corner-bl">+</div>
       <div class="corner-marker corner-br">+</div>
 
-      <div class="terminal-tag">// 01 / PUBLIC_AUTHENTICITY_VERIFICATION</div>
-      <h1 id="verify-heading" class="page-title"><span class="prompt">&gt;_</span> VERIFY_CERTIFICATE</h1>
-      <p class="subtitle">
-        Validate the authenticity of any official AI Kshetra 2026 participation certificate. Scan the certificate's QR code or enter the Certificate ID below.
-      </p>
+      <div class="terminal-tag">// 01 / QR_VERIFICATION_PORTAL</div>
+      <h1 id="verify-notice-heading" class="page-title"><span class="prompt">&gt;_</span> VERIFY_CERTIFICATE</h1>
 
-      <!-- Verification Input Panel -->
-      <div class="input-terminal-group" style="margin-top: 1.5rem;">
-        <label for="inputCertId" class="input-label">
-          <span class="prompt">&gt;</span> ENTER CERTIFICATE ID (e.g. AIK26-0001)
-        </label>
-
-        <div class="form-inline-row">
-          <div class="input-bracket-wrapper" style="flex: 1; min-width: 240px;">
-            <span class="input-prefix">[ ID:</span>
-            <input 
-              type="text" 
-              id="inputCertId" 
-              class="terminal-input" 
-              placeholder="AIK26-0001" 
-              autocomplete="off" 
-              spellcheck="false"
-              maxlength="20"
-              aria-label="Certificate ID"
-              autofocus
-            >
-            <span class="input-prefix">]</span>
-          </div>
-
-          <button type="button" id="btnVerifyCert" class="btn btn-primary">
-            [ VERIFY CERTIFICATE -&gt; ]
-          </button>
-        </div>
-
-        <div id="promptStatus" style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary); min-height: 1.2rem; margin-top: 0.6rem;">
-          &gt; SYSTEM READY. ENTER CERTIFICATE ID OR SCAN QR CODE.
-        </div>
+      <div class="status-badge" style="background: rgba(255,0,122,0.08); border: 1px solid var(--border-pink); margin-bottom: 1.75rem;">
+        <span class="icon" style="font-family: var(--font-mono);">[QR]</span>
+        SCAN THE QR CODE ON YOUR CERTIFICATE
       </div>
 
-      <!-- System Diagnostic Status -->
+      <p class="subtitle" style="margin-bottom: 1.5rem;">
+        Certificate authenticity is verified exclusively via the QR code printed on each certificate.
+        Scan the QR code with your mobile camera to open this page with your certificate details.
+      </p>
+
       <div class="terminal-status-box">
-        <div class="status-head">// VERIFICATION_METHODS_SUPPORTED</div>
+        <div class="status-head">// VERIFICATION_METHOD</div>
         <div class="status-grid">
           <div class="status-grid-item">
-            <span>METHOD 1:</span> <span>DIRECT CERTIFICATE ID QUERY</span>
-          </div>
-          <div class="status-grid-item">
-            <span>METHOD 2:</span> <span>QR CODE DEEP-LINK PARAMETER</span>
+            <span>METHOD:</span> <span>QR CODE SCAN ONLY</span>
           </div>
           <div class="status-grid-item">
             <span>REGISTRY:</span> <span>NEXAA OFFICIAL PARTICIPANT LEDGER</span>
           </div>
           <div class="status-grid-item">
+            <span>PROTOCOL:</span> <span>SHA-256 HASH VERIFIED</span>
+          </div>
+          <div class="status-grid-item">
             <span>IMMUTABILITY:</span> <span>SECURED &bull; VERIFIED</span>
           </div>
         </div>
+      </div>
+
+      <div class="info-note" style="margin-top: 1.5rem;">
+        <span class="note-prefix">// HOW_TO_VERIFY:</span>
+        <ul>
+          <li>Locate the QR code on the bottom-left corner of your printed or digital certificate.</li>
+          <li>Open your phone camera and point it at the QR code.</li>
+          <li>Tap the link that appears — it will open this page with your verified certificate details.</li>
+        </ul>
+      </div>
+
+      <div class="action-row" style="margin-top: 1.75rem;">
+        <a href="../index.html" class="btn btn-primary">[ GET MY CERTIFICATE -&gt; ]</a>
+        <a href="../index.html" class="btn btn-outline">[ HOME ]</a>
       </div>
     </section>
 
@@ -116,28 +104,26 @@
         <div class="footer-col">
           <h4>// DIRECT_LINKS</h4>
           <p><a href="../index.html" class="nav-link" style="padding-left:0;">[ HOME ]</a></p>
-          <p><a href="../certificate/index.html" class="nav-link" style="padding-left:0;">[ RETRIEVE MY CERTIFICATE ]</a></p>
+          <p><a href="../index.html" class="nav-link" style="padding-left:0;">[ RETRIEVE MY CERTIFICATE ]</a></p>
           <p><a href="../about/index.html" class="nav-link" style="padding-left:0;">[ ABOUT NEXAA ]</a></p>
         </div>
 
         <div class="footer-col">
           <h4>// INTEGRITY</h4>
           <p><span class="footer-tag">REGISTRY:</span> ONLINE</p>
-          <p><span class="footer-tag">VERIFICATION:</span> PUBLIC KEY PROTOCOL</p>
+          <p><span class="footer-tag">VERIFICATION:</span> QR CODE ONLY</p>
           <p><span class="footer-tag">ISSUER:</span> NEXAA</p>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>&copy; 2026 AI KSHETRA &bull; NEXAA &bull; R.V.R. &amp; J.C. COLLEGE OF ENGINEERING</div>
-        <div>TERMINAL_PROTOCOL_VER_2.6</div>
+        <div>TERMINAL_PROTOCOL_VER_3.0</div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
-  <script src="../assets/js/vendor/qrcode.min.js"></script>
-  <script src="../assets/js/vendor/html2pdf.bundle.min.js"></script>
   <script src="../assets/js/config.js"></script>
   <script src="../assets/js/crypto.js"></script>
   <script src="../assets/js/certificate.js"></script>
