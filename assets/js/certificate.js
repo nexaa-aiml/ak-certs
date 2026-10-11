@@ -1,4 +1,4 @@
-﻿/**
+/**
  * AI KSHETRA 2026 - Certificate PDF Download Utilities
  * NEXAA - Next Gen Engineers & AI Association
  * R.V.R. & J.C. College of Engineering, Guntur
@@ -31,7 +31,7 @@
 
     const originalText = btnEl ? btnEl.innerHTML : null;
     if (btnEl) {
-      btnEl.innerHTML = '[ PREPARING... ]';
+      btnEl.innerHTML = 'Preparing...';
       btnEl.disabled = true;
     }
 
