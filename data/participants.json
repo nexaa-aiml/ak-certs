@@ -33161,5 +33161,70 @@
     "pdfFile": "AIK26-2551.pdf",
     "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-2551",
     "qrPath": "certificates/qrs/AIK26-2551_CodeWarz.png"
+  },
+    {
+    "certificateId": "AIK26-10000",
+    "phoneHash": "1942a3f2f05ebbfe392fe1bec6d2aa8a2959435bab3a47c2055d7cbe6b8bda1b",
+    "name": "Bethu Neeraja Sri",
+    "event": "CodeWarz",
+    "eventTrack": "Competitive Programming",
+    "college": "Seshadri Rao Gudlavalleru Engineering College, Gudlavalleru",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026",
+    "pdfFile": "AIK26-10003.pdf",
+    "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-10003",
+    "qrPath": "certificates/qrs/AIK26-10003_CodeWarz.png"
+  },
+  {
+    "certificateId": "AIK26-10001",
+    "phoneHash": "1942a3f2f05ebbfe392fe1bec6d2aa8a2959435bab3a47c2055d7cbe6b8bda1b",
+    "name": "Bethu Neeraja Sri",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "Seshadri Rao Gudlavalleru Engineering College, Gudlavalleru",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026",
+    "pdfFile": "AIK26-10004.pdf",
+    "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-10004",
+    "qrPath": "certificates/qrs/AIK26-10004_OpenSesame.png"
+  },
+  {
+    "certificateId": "AIK26-10002",
+    "phoneHash": "1942a3f2f05ebbfe392fe1bec6d2aa8a2959435bab3a47c2055d7cbe6b8bda1b",
+    "name": "Bethu Neeraja Sri",
+    "event": "World of Agents",
+    "eventTrack": "AI & Automation Challenge",
+    "college": "Seshadri Rao Gudlavalleru Engineering College, Gudlavalleru",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026",
+    "pdfFile": "AIK26-10005.pdf",
+    "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-10005",
+    "qrPath": "certificates/qrs/AIK26-10005_WorldOfAgents.png"
+  },
+  {
+    "certificateId": "AIK26-10003",
+    "phoneHash": "efd8615b47769fdd71644bb13d0cb9bdf45e7dcf72f0e14271aead094a1eeb14",
+    "name": "P. Laxmi Prasanna",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "Andhra Loyola Institute of Engineering and Technology, Vijayawada",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026",
+    "pdfFile": "AIK26-10003.pdf",
+    "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-10003",
+    "qrPath": "certificates/qrs/AIK26-10003_OpenSesame.png"
+  },
+  {
+    "certificateId": "AIK26-10006",
+    "phoneHash": "a52f28356cb5adb07c2daacbbc21db284be772e544945c32a2fbc697bbdb027d",
+    "name": "Ardhala Praveen Prakash",
+    "event": "Open Sesame",
+    "eventTrack": "Technical Quiz & Puzzle Challenge",
+    "college": "Kallam Haranadha Reddy Institute of Technology",
+    "certificateType": "Certificate of Participation",
+    "date": "09 October 2026",
+    "pdfFile": "AIK26-10006.pdf",
+    "verificationUrl": "https://nexaa-aiml.github.io/ak-certs/verify/?id=AIK26-10006",
+    "qrPath": "certificates/qrs/AIK26-10006_OpenSesame.png"
   }
 ]
